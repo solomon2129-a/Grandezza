@@ -22,7 +22,10 @@ body {
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
+
+*, *::before, *::after { box-sizing: border-box; }
 
 ::selection { background-color: #C6A86B; color: #F5F3EF; }
 
@@ -37,7 +40,7 @@ body {
 }
 .hero-zoom { animation: slowZoom 14s ease-in-out infinite alternate; }
 
-/* Marquee / ticker */
+/* Marquee */
 @keyframes ticker {
   from { transform: translateX(0); }
   to   { transform: translateX(-50%); }
@@ -49,7 +52,7 @@ body {
 }
 .marquee-inner:hover { animation-play-state: paused; }
 
-/* Grain texture overlay for dark sections */
+/* Grain overlay on dark sections */
 .grain::after {
   content: "";
   position: absolute;
@@ -61,14 +64,14 @@ body {
   mix-blend-mode: overlay;
 }
 
-/* Vertical text utility */
+/* Vertical text */
 .vertical-text {
   writing-mode: vertical-rl;
   text-orientation: mixed;
   transform: rotate(180deg);
 }
 
-/* Image reveal on hover */
+/* Image reveal */
 .img-reveal { overflow: hidden; }
 .img-reveal img { transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1); }
 .img-reveal:hover img { transform: scale(1.05); }

@@ -1,21 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Check } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Hero from "@/components/Hero";
 import Marquee from "@/components/Marquee";
 import GoldDivider from "@/components/GoldDivider";
-import ServiceCard from "@/components/ServiceCard";
 import TestimonialCard from "@/components/TestimonialCard";
-import ProjectCard from "@/components/ProjectCard";
 import CTASection from "@/components/CTASection";
 import SectionWrapper from "@/components/SectionWrapper";
 import AnimateIn from "@/components/AnimateIn";
 import { fadeLeft, fadeRight, fadeUp } from "@/lib/animations";
 import {
   STATS,
-  SERVICES,
-  PROCESS_STEPS,
-  PROJECTS,
   TESTIMONIALS,
   WHY_US,
 } from "@/lib/constants";
@@ -47,11 +42,11 @@ export default function HomePage() {
           </span>
         </div>
 
-        <div className="relative max-w-7xl mx-auto px-6 lg:px-16 py-20">
+        <div className="relative max-w-7xl mx-auto px-5 sm:px-8 lg:px-16 py-14 sm:py-20">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-0">
             {STATS.map((stat, i) => (
               <AnimateIn key={stat.label} delay={i * 0.12}>
-                <div className="relative text-center px-6 py-10 lg:py-12 group">
+                <div className="relative text-center px-4 sm:px-6 py-8 sm:py-10 lg:py-12 group">
                   {/* Top gold line that grows on hover */}
                   <div className="absolute top-0 left-1/2 -translate-x-1/2 w-8 h-px bg-[#C6A86B] group-hover:w-full transition-all duration-700" />
                   <p
@@ -78,7 +73,7 @@ export default function HomePage() {
 
       {/* ─── ABOUT PREVIEW ─── */}
       <SectionWrapper>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           <AnimateIn variants={fadeLeft}>
             <p
               className="text-[9px] tracking-[0.4em] uppercase text-[#C6A86B] mb-5"
@@ -149,10 +144,7 @@ export default function HomePage() {
           <AnimateIn variants={fadeRight}>
             <div className="relative">
               {/* Main image */}
-              <div
-                className="relative overflow-hidden img-reveal"
-                style={{ height: "580px" }}
-              >
+              <div className="relative overflow-hidden img-reveal h-[320px] sm:h-[440px] lg:h-[580px]">
                 <Image
                   src="https://images.unsplash.com/photo-1618219908412-a29a1bb7b86e?w=900&q=80"
                   alt="Luxury interior"
@@ -191,233 +183,12 @@ export default function HomePage() {
 
       <GoldDivider className="max-w-7xl mx-auto px-6 lg:px-16" />
 
-      {/* ─── SERVICES ─── */}
-      <SectionWrapper surface>
-        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-16 gap-6">
-          <AnimateIn variants={fadeLeft}>
-            <p
-              className="text-[9px] tracking-[0.4em] uppercase text-[#C6A86B] mb-5"
-              style={{ fontFamily: "var(--font-inter, sans-serif)" }}
-            >
-              What We Do
-            </p>
-            <h2
-              className="text-4xl md:text-5xl font-normal text-[#0D0D0D] leading-[1.1] tracking-[-0.02em]"
-              style={{ fontFamily: "var(--font-playfair, Georgia, serif)" }}
-            >
-              Our Services
-            </h2>
-          </AnimateIn>
-          <AnimateIn variants={fadeRight} delay={0.1}>
-            <p
-              className="text-[#8A8580] text-sm leading-7 max-w-sm"
-              style={{ fontFamily: "var(--font-inter, sans-serif)" }}
-            >
-              A complete spectrum of luxury design and construction — delivered under one roof.
-            </p>
-          </AnimateIn>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {SERVICES.map((service, i) => (
-            <ServiceCard
-              key={service.title}
-              title={service.title}
-              description={service.description}
-              image={service.image}
-              index={i}
-            />
-          ))}
-        </div>
-
-        <AnimateIn delay={0.3}>
-          <div className="mt-10 flex justify-end">
-            <Link
-              href="/services"
-              className="inline-flex items-center gap-3 text-[#0D0D0D] text-[10px] tracking-[0.25em] uppercase font-medium border-b border-[#C6A86B] pb-1 hover:text-[#C6A86B] transition-colors duration-300"
-              style={{ fontFamily: "var(--font-inter, sans-serif)" }}
-            >
-              All Services <ArrowRight size={12} />
-            </Link>
-          </div>
-        </AnimateIn>
-      </SectionWrapper>
-
-      {/* ─── PROCESS ─── */}
-      <section className="relative grain overflow-hidden" style={{ background: "#0D0D0D" }}>
-        {/* Vertical gold accent line */}
-        <div className="absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-px bg-[#C6A86B]/8 pointer-events-none hidden lg:block" />
-
-        <div className="max-w-7xl mx-auto px-6 lg:px-16 py-28 lg:py-36">
-          <div className="flex flex-col lg:flex-row justify-between items-start mb-20 gap-8">
-            <AnimateIn variants={fadeLeft}>
-              <p
-                className="text-[9px] tracking-[0.4em] uppercase text-[#C6A86B] mb-5"
-                style={{ fontFamily: "var(--font-inter, sans-serif)" }}
-              >
-                How We Work
-              </p>
-              <h2
-                className="text-4xl md:text-5xl font-normal text-[#F5F3EF] leading-[1.1] tracking-[-0.02em]"
-                style={{ fontFamily: "var(--font-playfair, Georgia, serif)" }}
-              >
-                Our Process
-              </h2>
-            </AnimateIn>
-            <AnimateIn variants={fadeRight} delay={0.1}>
-              <p
-                className="text-[#6B6560] text-sm leading-7 max-w-xs"
-                style={{ fontFamily: "var(--font-inter, sans-serif)" }}
-              >
-                A seamless journey from first conversation to final walkthrough.
-              </p>
-            </AnimateIn>
-          </div>
-
-          <div className="space-y-0">
-            {PROCESS_STEPS.map((step, i) => (
-              <AnimateIn key={step.step} delay={i * 0.08}>
-                <div className="relative flex gap-8 lg:gap-16 py-10 border-b border-[#1A1A1A] last:border-0 group">
-                  {/* Giant watermark step number */}
-                  <div
-                    className="absolute right-0 top-1/2 -translate-y-1/2 select-none pointer-events-none"
-                    aria-hidden="true"
-                  >
-                    <span
-                      className="text-white/[0.025] font-normal leading-none"
-                      style={{
-                        fontFamily: "var(--font-playfair, Georgia, serif)",
-                        fontSize: "clamp(5rem, 12vw, 10rem)",
-                      }}
-                    >
-                      {step.step}
-                    </span>
-                  </div>
-
-                  {/* Step number */}
-                  <div className="shrink-0 w-14 h-14 border border-[#1F1F1F] group-hover:border-[#C6A86B] flex items-center justify-center transition-colors duration-500">
-                    <span
-                      className="text-[#C6A86B] text-sm font-normal"
-                      style={{ fontFamily: "var(--font-playfair, Georgia, serif)" }}
-                    >
-                      {step.step}
-                    </span>
-                  </div>
-
-                  <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-16 flex-1 pr-24">
-                    <h3
-                      className="text-[#F5F3EF] text-xl font-normal w-40 shrink-0"
-                      style={{ fontFamily: "var(--font-playfair, Georgia, serif)" }}
-                    >
-                      {step.title}
-                    </h3>
-                    <p
-                      className="text-[#6B6560] text-sm leading-7"
-                      style={{ fontFamily: "var(--font-inter, sans-serif)" }}
-                    >
-                      {step.description}
-                    </p>
-                  </div>
-                </div>
-              </AnimateIn>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ─── PROJECTS PREVIEW ─── */}
-      <SectionWrapper>
-        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-16">
-          <AnimateIn variants={fadeLeft}>
-            <p
-              className="text-[9px] tracking-[0.4em] uppercase text-[#C6A86B] mb-5"
-              style={{ fontFamily: "var(--font-inter, sans-serif)" }}
-            >
-              Portfolio
-            </p>
-            <h2
-              className="text-4xl md:text-5xl font-normal text-[#0D0D0D] leading-[1.1] tracking-[-0.02em]"
-              style={{ fontFamily: "var(--font-playfair, Georgia, serif)" }}
-            >
-              Selected Work
-            </h2>
-          </AnimateIn>
-          <AnimateIn variants={fadeRight} delay={0.2}>
-            <Link
-              href="/projects"
-              className="inline-flex items-center gap-2 text-[#0D0D0D] text-[10px] tracking-[0.25em] uppercase font-medium border-b border-[#C6A86B] pb-1 hover:text-[#C6A86B] transition-colors duration-300 mt-6 sm:mt-0 shrink-0"
-              style={{ fontFamily: "var(--font-inter, sans-serif)" }}
-            >
-              All Projects <ArrowRight size={12} />
-            </Link>
-          </AnimateIn>
-        </div>
-
-        {/* Featured large project */}
-        <AnimateIn>
-          <div className="relative overflow-hidden img-reveal mb-5 group cursor-pointer" style={{ height: "460px" }}>
-            <Image
-              src={PROJECTS[0].image}
-              alt={PROJECTS[0].title}
-              fill
-              className="object-cover"
-              sizes="100vw"
-            />
-            <div
-              className="absolute inset-0"
-              style={{
-                background:
-                  "linear-gradient(to top, rgba(13,13,13,0.75) 0%, transparent 50%)",
-              }}
-            />
-            <div className="absolute bottom-8 left-8 right-8 flex items-end justify-between">
-              <div>
-                <span
-                  className="text-[#C6A86B] text-[9px] tracking-[0.35em] uppercase mb-2 block"
-                  style={{ fontFamily: "var(--font-inter, sans-serif)" }}
-                >
-                  {PROJECTS[0].category} · {PROJECTS[0].location}
-                </span>
-                <h3
-                  className="text-[#F5F3EF] text-3xl font-normal"
-                  style={{ fontFamily: "var(--font-playfair, Georgia, serif)" }}
-                >
-                  {PROJECTS[0].title}
-                </h3>
-              </div>
-              <div className="w-12 h-12 border border-[#C6A86B] flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 shrink-0 ml-4">
-                <ArrowRight size={16} className="text-[#C6A86B]" />
-              </div>
-            </div>
-          </div>
-        </AnimateIn>
-
-        {/* 3-column grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-          {PROJECTS.slice(1, 4).map((project, i) => (
-            <ProjectCard
-              key={project.id}
-              title={project.title}
-              category={project.category}
-              location={project.location}
-              image={project.image}
-              index={i}
-            />
-          ))}
-        </div>
-      </SectionWrapper>
-
-      <GoldDivider className="max-w-7xl mx-auto px-6 lg:px-16" />
-
       {/* ─── WHY CHOOSE US ─── */}
       <SectionWrapper surface>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           <AnimateIn variants={fadeLeft}>
             <div className="relative">
-              <div
-                className="relative overflow-hidden img-reveal"
-                style={{ height: "620px" }}
-              >
+              <div className="relative overflow-hidden img-reveal h-[300px] sm:h-[440px] lg:h-[620px]">
                 <Image
                   src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=900&q=80"
                   alt="Precision craftsmanship"
@@ -518,7 +289,7 @@ export default function HomePage() {
           </h2>
         </AnimateIn>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-16">
           {TESTIMONIALS.map((t, i) => (
             <TestimonialCard
               key={t.name}

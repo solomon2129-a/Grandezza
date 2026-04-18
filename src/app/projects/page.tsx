@@ -61,7 +61,7 @@ export default function ProjectsPage() {
       </section>
 
       {/* FILTER + GRID */}
-      <section style={{ background: "#F5F3EF" }} className="px-6 lg:px-16 py-28">
+      <section style={{ background: "#F5F3EF" }} className="px-5 sm:px-8 lg:px-16 py-16 sm:py-24 lg:py-28">
         <div className="max-w-7xl mx-auto">
           {/* Filter tabs */}
           <AnimateIn>
@@ -107,7 +107,7 @@ export default function ProjectsPage() {
                   exit="hidden"
                   className="group cursor-pointer"
                 >
-                  <div className="relative overflow-hidden" style={{ height: "380px" }}>
+                  <div className="relative overflow-hidden h-[240px] sm:h-[320px] lg:h-[380px]">
                     <Image
                       src={project.image}
                       alt={project.title}

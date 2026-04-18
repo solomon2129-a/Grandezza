@@ -155,18 +155,54 @@ export function ServiceImageAccordion() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <div
-      className="flex flex-row items-stretch w-full overflow-hidden"
-      style={{ gap: "3px" }}
-    >
-      {accordionItems.map((item, index) => (
-        <AccordionPanel
-          key={item.id}
-          item={item}
-          isActive={index === activeIndex}
-          onMouseEnter={() => setActiveIndex(index)}
-        />
-      ))}
-    </div>
+    <>
+      {/* Mobile/tablet: simple 2-column grid */}
+      <div className="grid grid-cols-2 gap-3 md:hidden">
+        {accordionItems.map((item) => (
+          <div key={item.id} className="relative overflow-hidden h-[180px]">
+            <Image
+              src={item.imageUrl}
+              alt={item.title}
+              fill
+              className="object-cover"
+              sizes="50vw"
+            />
+            <div
+              className="absolute inset-0"
+              style={{ background: "linear-gradient(to top, rgba(13,13,13,0.7) 0%, transparent 55%)" }}
+            />
+            <div className="absolute bottom-4 left-4">
+              <p
+                className="text-[#C6A86B] text-[8px] tracking-[0.25em] uppercase mb-1"
+                style={{ fontFamily: "var(--font-inter, sans-serif)" }}
+              >
+                {item.subtitle}
+              </p>
+              <h3
+                className="text-[#F5F3EF] text-sm font-normal"
+                style={{ fontFamily: "var(--font-playfair, Georgia, serif)" }}
+              >
+                {item.title}
+              </h3>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Desktop: horizontal hover accordion */}
+      <div
+        className="hidden md:flex flex-row items-stretch w-full overflow-hidden"
+        style={{ gap: "3px" }}
+      >
+        {accordionItems.map((item, index) => (
+          <AccordionPanel
+            key={item.id}
+            item={item}
+            isActive={index === activeIndex}
+            onMouseEnter={() => setActiveIndex(index)}
+          />
+        ))}
+      </div>
+    </>
   );
 }

@@ -63,7 +63,7 @@ export default function AboutPage() {
 
       {/* INTRO */}
       <SectionWrapper>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           <AnimateIn variants={fadeLeft}>
             <p className="text-[9px] tracking-[0.4em] uppercase text-[#C6A86B] mb-5" style={{ fontFamily: "var(--font-inter, sans-serif)" }}>Who We Are</p>
             <h2
@@ -98,7 +98,7 @@ export default function AboutPage() {
 
           <AnimateIn variants={fadeRight}>
             <div className="relative">
-              <div className="relative overflow-hidden img-reveal" style={{ height: "580px" }}>
+              <div className="relative overflow-hidden img-reveal h-[300px] sm:h-[420px] lg:h-[580px]">
                 <Image
                   src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=900&q=80"
                   alt="Grandezza team"
@@ -121,10 +121,10 @@ export default function AboutPage() {
 
       {/* SHARIEFF CREATIONS */}
       <SectionWrapper surface>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           <AnimateIn variants={fadeLeft} className="order-2 lg:order-1">
             <div className="relative">
-              <div className="relative overflow-hidden img-reveal" style={{ height: "520px" }}>
+              <div className="relative overflow-hidden img-reveal h-[260px] sm:h-[380px] lg:h-[520px]">
                 <Image
                   src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=900&q=80"
                   alt="Sharieff Creations"

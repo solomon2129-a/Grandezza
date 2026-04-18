@@ -28,7 +28,7 @@ export default function ProjectCard({
       className="group cursor-pointer"
     >
       {/* Image */}
-      <div className="relative overflow-hidden" style={{ height: "340px" }}>
+      <div className="relative overflow-hidden h-[240px] sm:h-[300px] lg:h-[340px]">
         <Image
           src={image}
           alt={title}

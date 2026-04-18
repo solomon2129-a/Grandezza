@@ -28,7 +28,7 @@ export default function ServiceCard({
     >
       <Link href="/services" className="block">
         {/* Image container */}
-        <div className="relative overflow-hidden" style={{ height: "280px" }}>
+        <div className="relative overflow-hidden h-[220px] sm:h-[260px] lg:h-[280px]">
           <Image
             src={image}
             alt={title}

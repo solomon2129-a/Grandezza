@@ -66,9 +66,9 @@ export default function ContactPage() {
       </section>
 
       {/* CONTACT CONTENT */}
-      <section style={{ background: "#F5F3EF" }} className="px-6 lg:px-16 py-28 lg:py-36">
+      <section style={{ background: "#F5F3EF" }} className="px-5 sm:px-8 lg:px-16 py-16 sm:py-24 lg:py-36">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-16 lg:gap-24">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-24">
             {/* Info panel */}
             <AnimateIn variants={fadeLeft} className="lg:col-span-2">
               <p className="text-[9px] tracking-[0.4em] uppercase text-[#C6A86B] mb-5" style={{ fontFamily: "var(--font-inter, sans-serif)" }}>Reach Us</p>

@@ -123,8 +123,8 @@ export default function ServicesPage() {
 
       {/* INTERACTIVE ACCORDION */}
       <section className="relative grain" style={{ background: "#0D0D0D" }}>
-        <div className="max-w-7xl mx-auto px-6 lg:px-16 pt-28 pb-20">
-          <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-14 gap-6">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-16 pt-16 sm:pt-24 lg:pt-28 pb-14 sm:pb-20">
+          <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-10 sm:mb-14 gap-4 sm:gap-6">
             <AnimateIn variants={fadeLeft}>
               <p className="text-[9px] tracking-[0.4em] uppercase text-[#C6A86B] mb-5" style={{ fontFamily: "var(--font-inter, sans-serif)" }}>Hover to Explore</p>
               <h2
@@ -151,7 +151,7 @@ export default function ServicesPage() {
       {/* DETAILED SERVICES */}
       {DETAILED_SERVICES.map((service, idx) => (
         <SectionWrapper key={service.title} surface={idx % 2 !== 0}>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <AnimateIn
               variants={service.reversed ? fadeRight : fadeLeft}
               className={service.reversed ? "order-1 lg:order-2" : ""}
@@ -199,7 +199,7 @@ export default function ServicesPage() {
               variants={service.reversed ? fadeLeft : fadeRight}
               className={service.reversed ? "order-2 lg:order-1" : ""}
             >
-              <div className="relative overflow-hidden img-reveal" style={{ height: "520px" }}>
+              <div className="relative overflow-hidden img-reveal h-[260px] sm:h-[380px] lg:h-[520px]">
                 <Image
                   src={service.image}
                   alt={service.title}
@@ -227,7 +227,7 @@ export default function ServicesPage() {
 
       {/* PROCESS */}
       <section className="relative grain overflow-hidden" style={{ background: "#0D0D0D" }}>
-        <div className="max-w-7xl mx-auto px-6 lg:px-16 py-28 lg:py-36">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-16 py-16 sm:py-24 lg:py-36">
           <AnimateIn variants={fadeUp}>
             <p className="text-[9px] tracking-[0.4em] uppercase text-[#C6A86B] mb-5" style={{ fontFamily: "var(--font-inter, sans-serif)" }}>How We Work</p>
             <h2
@@ -240,9 +240,9 @@ export default function ServicesPage() {
           <div>
             {PROCESS_STEPS.map((step, i) => (
               <AnimateIn key={step.step} delay={i * 0.08}>
-                <div className="relative flex gap-8 lg:gap-16 py-10 border-b border-[#1A1A1A] last:border-0 group">
+                <div className="relative flex gap-5 sm:gap-8 lg:gap-16 py-8 sm:py-10 border-b border-[#1A1A1A] last:border-0 group">
                   <div
-                    className="absolute right-0 top-1/2 -translate-y-1/2 select-none pointer-events-none"
+                    className="absolute right-0 top-1/2 -translate-y-1/2 select-none pointer-events-none hidden sm:block"
                     aria-hidden="true"
                   >
                     <span
@@ -255,13 +255,13 @@ export default function ServicesPage() {
                       {step.step}
                     </span>
                   </div>
-                  <div className="shrink-0 w-14 h-14 border border-[#1F1F1F] group-hover:border-[#C6A86B] flex items-center justify-center transition-colors duration-500">
+                  <div className="shrink-0 w-10 h-10 sm:w-14 sm:h-14 border border-[#1F1F1F] group-hover:border-[#C6A86B] flex items-center justify-center transition-colors duration-500">
                     <span className="text-[#C6A86B] text-sm font-normal" style={{ fontFamily: "var(--font-playfair, Georgia, serif)" }}>
                       {step.step}
                     </span>
                   </div>
-                  <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-16 flex-1 pr-24">
-                    <h3 className="text-[#F5F3EF] text-xl font-normal w-40 shrink-0" style={{ fontFamily: "var(--font-playfair, Georgia, serif)" }}>
+                  <div className="flex flex-col md:flex-row md:items-center gap-3 md:gap-16 flex-1 sm:pr-24">
+                    <h3 className="text-[#F5F3EF] text-lg sm:text-xl font-normal md:w-40 shrink-0" style={{ fontFamily: "var(--font-playfair, Georgia, serif)" }}>
                       {step.title}
                     </h3>
                     <p className="text-[#6B6560] text-sm leading-7" style={{ fontFamily: "var(--font-inter, sans-serif)" }}>

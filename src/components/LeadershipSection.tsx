@@ -36,7 +36,7 @@ export default function LeadershipSection() {
             className="group"
           >
             {/* Portrait */}
-            <div className="relative overflow-hidden mb-7" style={{ height: "400px" }}>
+            <div className="relative overflow-hidden mb-7 h-[280px] sm:h-[360px] lg:h-[400px]">
               <Image
                 src={leader.image}
                 alt={leader.name}
