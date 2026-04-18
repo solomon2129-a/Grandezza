@@ -14,28 +14,35 @@ export default function SectionHeader({
   centered = false,
 }: SectionHeaderProps) {
   return (
-    <div className={`mb-16 ${centered ? "text-center" : ""}`}>
+    <div className={`mb-16 lg:mb-20 ${centered ? "text-center" : ""}`}>
       {eyebrow && (
         <p
-          className="text-[10px] tracking-[0.35em] uppercase text-[#C9A84C] mb-4"
-          style={{ fontFamily: "var(--font-montserrat, sans-serif)" }}
+          className="text-[9px] tracking-[0.4em] uppercase text-[#C6A86B] mb-5"
+          style={{ fontFamily: "var(--font-inter, sans-serif)" }}
         >
           {eyebrow}
         </p>
       )}
-      <div className={`flex items-center gap-4 mb-6 ${centered ? "justify-center" : ""}`}>
-        <div className="w-12 h-px bg-[#C9A84C]" />
-      </div>
       <h2
-        className={`text-4xl md:text-5xl font-light leading-tight ${light ? "text-white" : "text-[#1A1A1A]"}`}
-        style={{ fontFamily: "var(--font-cormorant, Georgia, serif)" }}
+        className={`text-4xl md:text-5xl lg:text-6xl font-normal leading-[1.1] tracking-[-0.02em] ${
+          light ? "text-[#F5F3EF]" : "text-[#0D0D0D]"
+        } ${centered ? "mx-auto" : ""}`}
+        style={{
+          fontFamily: "var(--font-playfair, Georgia, serif)",
+          maxWidth: centered ? "700px" : undefined,
+        }}
       >
         {title}
       </h2>
       {subtitle && (
         <p
-          className={`mt-5 text-sm leading-7 max-w-xl ${centered ? "mx-auto" : ""} ${light ? "text-[#9E9890]" : "text-[#6B6560]"}`}
-          style={{ fontFamily: "var(--font-montserrat, sans-serif)" }}
+          className={`mt-5 text-sm leading-7 ${centered ? "mx-auto" : ""} ${
+            light ? "text-[#6B6560]" : "text-[#8A8580]"
+          }`}
+          style={{
+            fontFamily: "var(--font-inter, sans-serif)",
+            maxWidth: "480px",
+          }}
         >
           {subtitle}
         </p>

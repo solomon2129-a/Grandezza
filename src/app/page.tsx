@@ -1,12 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, ChevronDown } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
+import Hero from "@/components/Hero";
 import ServiceCard from "@/components/ServiceCard";
 import TestimonialCard from "@/components/TestimonialCard";
 import ProjectCard from "@/components/ProjectCard";
 import CTASection from "@/components/CTASection";
 import SectionWrapper from "@/components/SectionWrapper";
 import SectionHeader from "@/components/SectionHeader";
+import AnimateIn from "@/components/AnimateIn";
+import { fadeUp, staggerContainer, fadeLeft, fadeRight } from "@/lib/animations";
 import {
   STATS,
   SERVICES,
@@ -19,83 +23,31 @@ import {
 export default function HomePage() {
   return (
     <>
-      {/* HERO */}
-      <section className="relative h-screen min-h-[700px] flex items-center justify-center overflow-hidden">
-        <Image
-          src="https://images.unsplash.com/photo-1600210492493-0946911123ea?w=1800&q=85"
-          alt="Luxury interior"
-          fill
-          priority
-          className="object-cover"
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-black/55" />
+      <Hero />
 
-        <div className="relative z-10 text-center px-6 max-w-5xl mx-auto">
-          <p
-            className="text-[#C9A84C] text-[10px] tracking-[0.5em] uppercase mb-8"
-            style={{ fontFamily: "var(--font-montserrat, sans-serif)" }}
-          >
-            Backed by Sharieff Creations · 30+ Year Legacy
-          </p>
-          <h1
-            className="text-5xl md:text-7xl lg:text-8xl font-light text-white leading-tight mb-8"
-            style={{ fontFamily: "var(--font-cormorant, Georgia, serif)" }}
-          >
-            From Design to Execution —<br />
-            <span className="italic text-[#E8D5A3]">Luxury Spaces,</span>
-            <br />
-            Fully Delivered
-          </h1>
-          <p
-            className="text-white/70 text-sm tracking-widest mb-14 max-w-xl mx-auto leading-7"
-            style={{ fontFamily: "var(--font-montserrat, sans-serif)" }}
-          >
-            30+ years of legacy · 500+ skilled workforce · Complete turnkey solutions
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/contact"
-              className="px-10 py-4 bg-[#C9A84C] text-white text-[11px] tracking-[0.3em] uppercase font-medium hover:bg-[#8B6914] transition-colors duration-300"
-              style={{ fontFamily: "var(--font-montserrat, sans-serif)" }}
-            >
-              Start Your Project
-            </Link>
-            <Link
-              href="/projects"
-              className="px-10 py-4 border border-white/50 text-white text-[11px] tracking-[0.3em] uppercase font-medium hover:border-white hover:bg-white/10 transition-all duration-300"
-              style={{ fontFamily: "var(--font-montserrat, sans-serif)" }}
-            >
-              View Projects
-            </Link>
-          </div>
-        </div>
-
-        {/* Scroll indicator */}
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce">
-          <ChevronDown size={20} className="text-white/50" />
-        </div>
-      </section>
-
-      {/* STATS */}
-      <section className="bg-[#1A1A1A] py-16">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-0 divide-x-0 lg:divide-x lg:divide-[#2A2A2A]">
-            {STATS.map((stat) => (
-              <div key={stat.label} className="text-center py-4 lg:py-0 lg:px-8">
-                <p
-                  className="text-4xl md:text-5xl font-light text-[#C9A84C] mb-2"
-                  style={{ fontFamily: "var(--font-cormorant, Georgia, serif)" }}
+      {/* STATS — single instance, homepage only */}
+      <section style={{ background: "#0D0D0D" }} className="py-16">
+        <div className="max-w-7xl mx-auto px-6 lg:px-16">
+          <div className="grid grid-cols-2 lg:grid-cols-4">
+            {STATS.map((stat, i) => (
+              <AnimateIn key={stat.label} delay={i * 0.1}>
+                <div
+                  className="text-center py-8 lg:py-0 lg:px-10 border-r border-[#1F1F1F] last:border-0"
                 >
-                  {stat.value}
-                </p>
-                <p
-                  className="text-[#9E9890] text-[10px] tracking-[0.2em] uppercase"
-                  style={{ fontFamily: "var(--font-montserrat, sans-serif)" }}
-                >
-                  {stat.label}
-                </p>
-              </div>
+                  <p
+                    className="text-5xl font-normal text-[#C6A86B] mb-2"
+                    style={{ fontFamily: "var(--font-playfair, Georgia, serif)" }}
+                  >
+                    {stat.value}
+                  </p>
+                  <p
+                    className="text-[#6B6560] text-[9px] tracking-[0.25em] uppercase"
+                    style={{ fontFamily: "var(--font-inter, sans-serif)" }}
+                  >
+                    {stat.label}
+                  </p>
+                </div>
+              </AnimateIn>
             ))}
           </div>
         </div>
@@ -103,76 +55,78 @@ export default function HomePage() {
 
       {/* ABOUT PREVIEW */}
       <SectionWrapper>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+          <AnimateIn variants={fadeLeft}>
             <p
-              className="text-[10px] tracking-[0.35em] uppercase text-[#C9A84C] mb-4"
-              style={{ fontFamily: "var(--font-montserrat, sans-serif)" }}
+              className="text-[9px] tracking-[0.4em] uppercase text-[#C6A86B] mb-5"
+              style={{ fontFamily: "var(--font-inter, sans-serif)" }}
             >
               Our Legacy
             </p>
-            <div className="w-12 h-px bg-[#C9A84C] mb-6" />
             <h2
-              className="text-4xl md:text-5xl font-light text-[#1A1A1A] leading-tight mb-6"
-              style={{ fontFamily: "var(--font-cormorant, Georgia, serif)" }}
+              className="text-4xl md:text-5xl lg:text-6xl font-normal text-[#0D0D0D] leading-[1.1] tracking-[-0.02em] mb-7"
+              style={{ fontFamily: "var(--font-playfair, Georgia, serif)" }}
             >
-              Grandezza — The Modern Face of a 30-Year Legacy
+              Grandezza — The Modern Face of a 30‑Year Legacy
             </h2>
             <p
-              className="text-[#6B6560] text-sm leading-7 mb-6"
-              style={{ fontFamily: "var(--font-montserrat, sans-serif)" }}
+              className="text-[#8A8580] text-sm leading-7 mb-5"
+              style={{ fontFamily: "var(--font-inter, sans-serif)" }}
             >
-              Grandezza is the luxury interior design and construction arm of Sharieff
-              Creations — a firm that has been shaping premium spaces for over three
-              decades. We bring together world-class design thinking and the operational
-              muscle of 500+ specialists to deliver spaces that are truly extraordinary.
+              Grandezza is the luxury design and construction arm of Sharieff Creations — a firm that has shaped premium spaces for over three decades. We combine world-class design with the operational depth of 500+ specialists.
             </p>
             <p
-              className="text-[#6B6560] text-sm leading-7 mb-10"
-              style={{ fontFamily: "var(--font-montserrat, sans-serif)" }}
+              className="text-[#8A8580] text-sm leading-7 mb-10"
+              style={{ fontFamily: "var(--font-inter, sans-serif)" }}
             >
-              From luxury residences and corporate headquarters to boutique hotels and
-              custom villas — we handle every detail, from the first sketch to the
-              final handover.
+              From luxury residences and corporate headquarters to custom villas — every detail, from first sketch to final handover, is our responsibility.
             </p>
             <Link
               href="/about"
-              className="inline-flex items-center gap-3 text-[#1A1A1A] text-[10px] tracking-[0.25em] uppercase font-medium border-b border-[#C9A84C] pb-1 hover:text-[#C9A84C] transition-colors duration-300"
-              style={{ fontFamily: "var(--font-montserrat, sans-serif)" }}
+              className="inline-flex items-center gap-3 text-[#0D0D0D] text-[10px] tracking-[0.25em] uppercase font-medium border-b border-[#C6A86B] pb-1 hover:text-[#C6A86B] transition-colors duration-300"
+              style={{ fontFamily: "var(--font-inter, sans-serif)" }}
             >
-              Our Story <ArrowRight size={13} />
+              Our Story <ArrowRight size={12} />
             </Link>
-          </div>
-          <div className="relative">
-            <div className="relative h-[500px] overflow-hidden">
-              <Image
-                src="https://images.unsplash.com/photo-1618219908412-a29a1bb7b86e?w=900&q=80"
-                alt="Luxury interior design"
-                fill
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 50vw"
+          </AnimateIn>
+
+          <AnimateIn variants={fadeRight}>
+            <div className="relative">
+              <div className="relative overflow-hidden" style={{ height: "560px" }}>
+                <Image
+                  src="https://images.unsplash.com/photo-1618219908412-a29a1bb7b86e?w=900&q=80"
+                  alt="Luxury interior design"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+              </div>
+              <div
+                className="absolute -bottom-5 -left-5 w-28 h-28 border border-[#C6A86B]"
+                style={{ zIndex: -1 }}
               />
             </div>
-            {/* Gold accent box */}
-            <div className="absolute -bottom-6 -left-6 w-32 h-32 border border-[#C9A84C] -z-10" />
-          </div>
+          </AnimateIn>
         </div>
       </SectionWrapper>
 
       {/* SERVICES */}
-      <SectionWrapper className="bg-[#F2EDE8]">
-        <SectionHeader
-          eyebrow="What We Do"
-          title="Our Services"
-          subtitle="A full spectrum of luxury interior and construction services — delivered under one roof."
-        />
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {SERVICES.map((service) => (
+      <SectionWrapper surface>
+        <AnimateIn>
+          <SectionHeader
+            eyebrow="What We Do"
+            title="Our Services"
+            subtitle="A complete spectrum of luxury design and construction — delivered under one roof."
+          />
+        </AnimateIn>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {SERVICES.map((service, i) => (
             <ServiceCard
               key={service.title}
               title={service.title}
               description={service.description}
               image={service.image}
+              index={i}
             />
           ))}
         </div>
@@ -180,40 +134,42 @@ export default function HomePage() {
 
       {/* PROCESS */}
       <SectionWrapper dark>
-        <SectionHeader
-          eyebrow="How We Work"
-          title="Our Process"
-          subtitle="A seamless journey from first conversation to final walkthrough."
-          light
-        />
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-0 relative">
-          {/* Connecting line (desktop) */}
-          <div className="hidden md:block absolute top-8 left-[10%] right-[10%] h-px bg-[#2A2A2A]" />
-
-          {PROCESS_STEPS.map((step, index) => (
-            <div key={step.step} className="relative flex flex-col items-center md:items-start text-center md:text-left px-4">
-              {/* Step number circle */}
-              <div className="relative z-10 w-16 h-16 border border-[#C9A84C] flex items-center justify-center mb-6 bg-[#1A1A1A]">
+        <AnimateIn>
+          <SectionHeader
+            eyebrow="How We Work"
+            title="Our Process"
+            subtitle="From first conversation to final walkthrough — a seamless journey."
+            light
+          />
+        </AnimateIn>
+        <div className="space-y-0">
+          {PROCESS_STEPS.map((step, i) => (
+            <AnimateIn key={step.step} delay={i * 0.08}>
+              <div
+                className="flex gap-10 py-10 border-b border-[#1F1F1F] last:border-0 group hover:pl-2 transition-all duration-500"
+              >
                 <span
-                  className="text-[#C9A84C] text-lg font-light"
-                  style={{ fontFamily: "var(--font-cormorant, Georgia, serif)" }}
+                  className="text-4xl font-normal text-[#1F1F1F] group-hover:text-[#C6A86B] transition-colors duration-500 w-16 shrink-0 pt-1"
+                  style={{ fontFamily: "var(--font-playfair, Georgia, serif)" }}
                 >
                   {step.step}
                 </span>
+                <div className="flex flex-col md:flex-row md:items-start gap-3 md:gap-16 flex-1">
+                  <h3
+                    className="text-[#F5F3EF] text-xl font-normal w-36 shrink-0"
+                    style={{ fontFamily: "var(--font-playfair, Georgia, serif)" }}
+                  >
+                    {step.title}
+                  </h3>
+                  <p
+                    className="text-[#6B6560] text-sm leading-7"
+                    style={{ fontFamily: "var(--font-inter, sans-serif)" }}
+                  >
+                    {step.description}
+                  </p>
+                </div>
               </div>
-              <h3
-                className="text-white text-lg font-light mb-3"
-                style={{ fontFamily: "var(--font-cormorant, Georgia, serif)" }}
-              >
-                {step.title}
-              </h3>
-              <p
-                className="text-[#9E9890] text-xs leading-6"
-                style={{ fontFamily: "var(--font-montserrat, sans-serif)" }}
-              >
-                {step.description}
-              </p>
-            </div>
+            </AnimateIn>
           ))}
         </div>
       </SectionWrapper>
@@ -221,82 +177,93 @@ export default function HomePage() {
       {/* PROJECTS PREVIEW */}
       <SectionWrapper>
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-16">
-          <SectionHeader
-            eyebrow="Our Portfolio"
-            title="Featured Projects"
-            subtitle="A selection of spaces we've brought to life."
-          />
-          <Link
-            href="/projects"
-            className="shrink-0 inline-flex items-center gap-2 text-[#1A1A1A] text-[10px] tracking-[0.25em] uppercase font-medium border-b border-[#C9A84C] pb-1 hover:text-[#C9A84C] transition-colors duration-300 mb-16 sm:mb-0"
-            style={{ fontFamily: "var(--font-montserrat, sans-serif)" }}
-          >
-            All Projects <ArrowRight size={13} />
-          </Link>
+          <AnimateIn>
+            <SectionHeader
+              eyebrow="Portfolio"
+              title="Selected Work"
+            />
+          </AnimateIn>
+          <AnimateIn delay={0.2}>
+            <Link
+              href="/projects"
+              className="inline-flex items-center gap-2 text-[#0D0D0D] text-[10px] tracking-[0.25em] uppercase font-medium border-b border-[#C6A86B] pb-1 hover:text-[#C6A86B] transition-colors duration-300 mb-16 sm:mb-0 shrink-0"
+              style={{ fontFamily: "var(--font-inter, sans-serif)" }}
+            >
+              All Projects <ArrowRight size={12} />
+            </Link>
+          </AnimateIn>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {PROJECTS.slice(0, 4).map((project) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+          {PROJECTS.slice(0, 4).map((project, i) => (
             <ProjectCard
               key={project.id}
               title={project.title}
               category={project.category}
               location={project.location}
               image={project.image}
+              index={i}
             />
           ))}
         </div>
       </SectionWrapper>
 
       {/* WHY CHOOSE US */}
-      <SectionWrapper className="bg-[#F2EDE8]">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div className="relative">
-            <div className="relative h-[600px] overflow-hidden">
-              <Image
-                src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=900&q=80"
-                alt="Luxury construction"
-                fill
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 50vw"
+      <SectionWrapper surface>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+          <AnimateIn variants={fadeLeft}>
+            <div className="relative">
+              <div className="relative overflow-hidden" style={{ height: "600px" }}>
+                <Image
+                  src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=900&q=80"
+                  alt="Precision craftsmanship"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+              </div>
+              <div
+                className="absolute -top-5 -right-5 w-28 h-28 border border-[#C6A86B]"
+                style={{ zIndex: -1 }}
               />
             </div>
-            <div className="absolute -top-6 -right-6 w-32 h-32 border border-[#C9A84C] -z-10" />
-          </div>
-          <div>
+          </AnimateIn>
+
+          <AnimateIn variants={fadeRight}>
             <p
-              className="text-[10px] tracking-[0.35em] uppercase text-[#C9A84C] mb-4"
-              style={{ fontFamily: "var(--font-montserrat, sans-serif)" }}
+              className="text-[9px] tracking-[0.4em] uppercase text-[#C6A86B] mb-5"
+              style={{ fontFamily: "var(--font-inter, sans-serif)" }}
             >
               Why Grandezza
             </p>
-            <div className="w-12 h-px bg-[#C9A84C] mb-6" />
             <h2
-              className="text-4xl md:text-5xl font-light text-[#1A1A1A] leading-tight mb-10"
-              style={{ fontFamily: "var(--font-cormorant, Georgia, serif)" }}
+              className="text-4xl md:text-5xl font-normal text-[#0D0D0D] leading-[1.1] tracking-[-0.02em] mb-12"
+              style={{ fontFamily: "var(--font-playfair, Georgia, serif)" }}
             >
               Built for those who demand the finest
             </h2>
-            <div className="space-y-8">
-              {WHY_US.map((item, index) => (
-                <div key={item.title} className="flex gap-6">
-                  <div className="shrink-0 w-8 h-8 border border-[#C9A84C] flex items-center justify-center">
+            <div className="space-y-9">
+              {WHY_US.map((item, i) => (
+                <div key={item.title} className="flex gap-6 group">
+                  <div
+                    className="shrink-0 w-8 h-8 border border-[#DDD9D2] group-hover:border-[#C6A86B] flex items-center justify-center transition-colors duration-300"
+                  >
                     <span
-                      className="text-[#C9A84C] text-xs"
-                      style={{ fontFamily: "var(--font-cormorant, Georgia, serif)" }}
+                      className="text-[#C6A86B] text-xs"
+                      style={{ fontFamily: "var(--font-playfair, Georgia, serif)" }}
                     >
-                      {String(index + 1).padStart(2, "0")}
+                      {String(i + 1).padStart(2, "0")}
                     </span>
                   </div>
                   <div>
                     <h3
-                      className="text-[#1A1A1A] text-lg font-light mb-1"
-                      style={{ fontFamily: "var(--font-cormorant, Georgia, serif)" }}
+                      className="text-[#0D0D0D] text-lg font-normal mb-1"
+                      style={{ fontFamily: "var(--font-playfair, Georgia, serif)" }}
                     >
                       {item.title}
                     </h3>
                     <p
-                      className="text-[#6B6560] text-xs leading-6"
-                      style={{ fontFamily: "var(--font-montserrat, sans-serif)" }}
+                      className="text-[#8A8580] text-sm leading-6"
+                      style={{ fontFamily: "var(--font-inter, sans-serif)" }}
                     >
                       {item.description}
                     </p>
@@ -304,31 +271,33 @@ export default function HomePage() {
                 </div>
               ))}
             </div>
-          </div>
+          </AnimateIn>
         </div>
       </SectionWrapper>
 
       {/* TESTIMONIALS */}
       <SectionWrapper>
-        <SectionHeader
-          eyebrow="Client Stories"
-          title="What Our Clients Say"
-          centered
-        />
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {TESTIMONIALS.map((testimonial) => (
+        <AnimateIn>
+          <SectionHeader
+            eyebrow="Client Stories"
+            title="What Our Clients Say"
+            centered
+          />
+        </AnimateIn>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {TESTIMONIALS.map((t, i) => (
             <TestimonialCard
-              key={testimonial.name}
-              name={testimonial.name}
-              role={testimonial.role}
-              quote={testimonial.quote}
-              image={testimonial.image}
+              key={t.name}
+              name={t.name}
+              role={t.role}
+              quote={t.quote}
+              image={t.image}
+              index={i}
             />
           ))}
         </div>
       </SectionWrapper>
 
-      {/* FINAL CTA */}
       <CTASection />
     </>
   );

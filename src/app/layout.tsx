@@ -1,19 +1,20 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Montserrat } from "next/font/google";
+import { Playfair_Display, Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-const cormorant = Cormorant_Garamond({
-  variable: "--font-cormorant",
+const playfair = Playfair_Display({
+  variable: "--font-playfair",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700"],
+  style: ["normal", "italic"],
 });
 
-const montserrat = Montserrat({
-  variable: "--font-montserrat",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["300", "400", "500", "600"],
 });
 
 export const metadata: Metadata = {
@@ -36,11 +37,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${cormorant.variable} ${montserrat.variable} scroll-smooth`}
-    >
-      <body className="min-h-screen flex flex-col antialiased" style={{ background: "#FAF8F5", color: "#1A1A1A" }}>
+    <html lang="en" className={`${playfair.variable} ${inter.variable}`}>
+      <body className="min-h-screen flex flex-col" style={{ background: "#F5F3EF", color: "#0D0D0D" }}>
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />

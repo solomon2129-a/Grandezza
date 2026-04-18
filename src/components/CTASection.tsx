@@ -1,4 +1,8 @@
+"use client";
+
 import Link from "next/link";
+import { motion } from "framer-motion";
+import { fadeUp, staggerContainer } from "@/lib/animations";
 
 interface CTASectionProps {
   title?: string;
@@ -8,51 +12,71 @@ interface CTASectionProps {
 }
 
 export default function CTASection({
-  title = "Ready to Begin Your Project?",
-  subtitle = "Let's transform your vision into a living reality. Our team is ready to listen.",
+  title = "Ready to Begin?",
+  subtitle = "Tell us about your project. We'll handle the rest.",
   buttonText = "Book a Consultation",
   buttonHref = "/contact",
 }: CTASectionProps) {
   return (
-    <section className="relative py-32 overflow-hidden bg-[#1A1A1A]">
-      {/* Gold accent line */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#C9A84C] to-transparent" />
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#C9A84C] to-transparent" />
+    <section
+      className="relative py-36 overflow-hidden"
+      style={{ background: "#0D0D0D" }}
+    >
+      {/* Subtle gold horizontal lines */}
+      <div className="absolute top-0 left-0 right-0 h-px" style={{ background: "linear-gradient(to right, transparent, #C6A86B40, transparent)" }} />
+      <div className="absolute bottom-0 left-0 right-0 h-px" style={{ background: "linear-gradient(to right, transparent, #C6A86B40, transparent)" }} />
 
-      {/* Background texture */}
-      <div className="absolute inset-0 opacity-5"
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23C9A84C' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-        }}
-      />
+      <motion.div
+        className="relative max-w-3xl mx-auto px-6 text-center"
+        variants={staggerContainer}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-80px" }}
+      >
+        <motion.p
+          variants={fadeUp}
+          className="text-[9px] tracking-[0.45em] uppercase text-[#C6A86B] mb-8"
+          style={{ fontFamily: "var(--font-inter, sans-serif)" }}
+        >
+          Let&apos;s Create Something Extraordinary
+        </motion.p>
 
-      <div className="relative max-w-4xl mx-auto px-6 text-center">
-        <div className="flex items-center justify-center gap-6 mb-8">
-          <div className="w-16 h-px bg-[#C9A84C]" />
-          <div className="w-1.5 h-1.5 bg-[#C9A84C] rotate-45" />
-          <div className="w-16 h-px bg-[#C9A84C]" />
-        </div>
-
-        <h2
-          className="text-4xl md:text-6xl font-light text-white mb-6 leading-tight"
-          style={{ fontFamily: "var(--font-cormorant, Georgia, serif)" }}
+        <motion.h2
+          variants={fadeUp}
+          className="text-5xl md:text-7xl font-normal text-[#F5F3EF] leading-[1.05] tracking-[-0.02em] mb-6"
+          style={{ fontFamily: "var(--font-playfair, Georgia, serif)" }}
         >
           {title}
-        </h2>
-        <p
-          className="text-[#9E9890] text-sm leading-7 mb-12 max-w-lg mx-auto"
-          style={{ fontFamily: "var(--font-montserrat, sans-serif)" }}
+        </motion.h2>
+
+        <motion.p
+          variants={fadeUp}
+          className="text-[#6B6560] text-sm leading-7 mb-12"
+          style={{ fontFamily: "var(--font-inter, sans-serif)" }}
         >
           {subtitle}
-        </p>
-        <Link
-          href={buttonHref}
-          className="inline-flex items-center gap-3 px-10 py-4 bg-[#C9A84C] text-white text-[11px] tracking-[0.3em] uppercase font-medium hover:bg-[#8B6914] transition-colors duration-300"
-          style={{ fontFamily: "var(--font-montserrat, sans-serif)" }}
-        >
-          {buttonText}
-        </Link>
-      </div>
+        </motion.p>
+
+        <motion.div variants={fadeUp}>
+          <Link
+            href={buttonHref}
+            className="inline-flex items-center gap-3 px-10 py-4 text-[11px] tracking-[0.3em] uppercase font-medium transition-all duration-300 hover:gap-5"
+            style={{
+              fontFamily: "var(--font-inter, sans-serif)",
+              background: "#C6A86B",
+              color: "#0D0D0D",
+            }}
+            onMouseEnter={(e) => {
+              (e.currentTarget as HTMLAnchorElement).style.background = "#F5F3EF";
+            }}
+            onMouseLeave={(e) => {
+              (e.currentTarget as HTMLAnchorElement).style.background = "#C6A86B";
+            }}
+          >
+            {buttonText}
+          </Link>
+        </motion.div>
+      </motion.div>
     </section>
   );
 }

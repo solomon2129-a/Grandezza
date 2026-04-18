@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 import { NAV_LINKS } from "@/lib/constants";
 
 export default function Navbar() {
@@ -13,108 +14,142 @@ export default function Navbar() {
   const isHome = pathname === "/";
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 60);
-    window.addEventListener("scroll", handleScroll);
+    const handleScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const navBg =
-    !isHome || scrolled
-      ? "bg-[#FAF8F5] shadow-sm border-b border-[#E8E0D5]"
-      : "bg-transparent";
-
-  const textColor =
-    !isHome || scrolled ? "text-[#1A1A1A]" : "text-white";
-
-  const logoColor =
-    !isHome || scrolled ? "text-[#1A1A1A]" : "text-white";
+  const transparent = isHome && !scrolled;
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${navBg}`}
+      className="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
+      style={{
+        background: transparent ? "transparent" : "#F5F3EF",
+        borderBottom: transparent ? "none" : "1px solid #DDD9D2",
+      }}
     >
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 h-20 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-6 lg:px-16 h-20 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex flex-col leading-none">
+        <Link href="/" className="flex flex-col leading-none group">
           <span
-            className={`text-2xl font-light tracking-[0.25em] uppercase transition-colors duration-500 ${logoColor}`}
-            style={{ fontFamily: "var(--font-cormorant, Georgia, serif)" }}
+            className="text-xl tracking-[0.3em] uppercase transition-colors duration-300"
+            style={{
+              fontFamily: "var(--font-playfair, Georgia, serif)",
+              color: transparent ? "#F5F3EF" : "#0D0D0D",
+              fontWeight: 400,
+            }}
           >
             Grandezza
           </span>
           <span
-            className={`text-[9px] tracking-[0.3em] uppercase transition-colors duration-500 ${!isHome || scrolled ? "text-[#C9A84C]" : "text-[#E8D5A3]"}`}
-            style={{ fontFamily: "var(--font-montserrat, sans-serif)" }}
+            className="text-[8px] tracking-[0.35em] uppercase mt-0.5"
+            style={{
+              fontFamily: "var(--font-inter, sans-serif)",
+              color: "#C6A86B",
+            }}
           >
             by Sharieff Creations
           </span>
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden lg:flex items-center gap-8">
+        <nav className="hidden lg:flex items-center gap-10">
           {NAV_LINKS.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className={`text-[11px] tracking-[0.2em] uppercase font-medium transition-colors duration-300 hover:text-[#C9A84C] ${
-                pathname === link.href
-                  ? "text-[#C9A84C]"
-                  : textColor
-              }`}
-              style={{ fontFamily: "var(--font-montserrat, sans-serif)" }}
+              className="relative text-[11px] tracking-[0.18em] uppercase font-medium transition-colors duration-300 hover:text-[#C6A86B]"
+              style={{
+                fontFamily: "var(--font-inter, sans-serif)",
+                color: transparent
+                  ? pathname === link.href
+                    ? "#C6A86B"
+                    : "rgba(245,243,239,0.75)"
+                  : pathname === link.href
+                  ? "#C6A86B"
+                  : "#0D0D0D",
+              }}
             >
               {link.label}
+              {pathname === link.href && (
+                <span className="absolute -bottom-1 left-0 right-0 h-px bg-[#C6A86B]" />
+              )}
             </Link>
           ))}
           <Link
             href="/contact"
-            className="ml-4 px-6 py-2.5 border border-[#C9A84C] text-[#C9A84C] text-[10px] tracking-[0.25em] uppercase font-medium hover:bg-[#C9A84C] hover:text-white transition-all duration-300"
-            style={{ fontFamily: "var(--font-montserrat, sans-serif)" }}
+            className="ml-2 px-7 py-2.5 text-[10px] tracking-[0.25em] uppercase font-medium border transition-all duration-300"
+            style={{
+              fontFamily: "var(--font-inter, sans-serif)",
+              borderColor: transparent ? "rgba(245,243,239,0.4)" : "#C6A86B",
+              color: transparent ? "#F5F3EF" : "#C6A86B",
+            }}
+            onMouseEnter={(e) => {
+              (e.currentTarget as HTMLAnchorElement).style.background = "#C6A86B";
+              (e.currentTarget as HTMLAnchorElement).style.color = "#F5F3EF";
+              (e.currentTarget as HTMLAnchorElement).style.borderColor = "#C6A86B";
+            }}
+            onMouseLeave={(e) => {
+              (e.currentTarget as HTMLAnchorElement).style.background = "transparent";
+              (e.currentTarget as HTMLAnchorElement).style.color = transparent ? "#F5F3EF" : "#C6A86B";
+              (e.currentTarget as HTMLAnchorElement).style.borderColor = transparent ? "rgba(245,243,239,0.4)" : "#C6A86B";
+            }}
           >
-            Get in Touch
+            Enquire
           </Link>
         </nav>
 
-        {/* Mobile Menu Toggle */}
+        {/* Mobile Toggle */}
         <button
-          className={`lg:hidden transition-colors ${textColor}`}
+          className="lg:hidden p-1 transition-colors"
+          style={{ color: transparent ? "#F5F3EF" : "#0D0D0D" }}
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle menu"
         >
-          {menuOpen ? <X size={22} /> : <Menu size={22} />}
+          {menuOpen ? <X size={20} /> : <Menu size={20} />}
         </button>
       </div>
 
       {/* Mobile Menu */}
-      <div
-        className={`lg:hidden transition-all duration-500 overflow-hidden ${
-          menuOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
-        } bg-[#FAF8F5] border-t border-[#E8E0D5]`}
-      >
-        <nav className="flex flex-col px-6 py-6 gap-5">
-          {NAV_LINKS.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              onClick={() => setMenuOpen(false)}
-              className={`text-[11px] tracking-[0.2em] uppercase font-medium transition-colors hover:text-[#C9A84C] ${
-                pathname === link.href ? "text-[#C9A84C]" : "text-[#1A1A1A]"
-              }`}
-              style={{ fontFamily: "var(--font-montserrat, sans-serif)" }}
-            >
-              {link.label}
-            </Link>
-          ))}
-          <Link
-            href="/contact"
-            onClick={() => setMenuOpen(false)}
-            className="mt-2 px-6 py-3 border border-[#C9A84C] text-[#C9A84C] text-[10px] tracking-[0.25em] uppercase font-medium text-center hover:bg-[#C9A84C] hover:text-white transition-all duration-300"
-            style={{ fontFamily: "var(--font-montserrat, sans-serif)" }}
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div
+            key="mobile-menu"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+            className="lg:hidden overflow-hidden"
+            style={{ background: "#F5F3EF", borderTop: "1px solid #DDD9D2" }}
           >
-            Get in Touch
-          </Link>
-        </nav>
-      </div>
+            <nav className="flex flex-col px-6 py-8 gap-6">
+              {NAV_LINKS.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setMenuOpen(false)}
+                  className="text-[11px] tracking-[0.2em] uppercase font-medium transition-colors hover:text-[#C6A86B]"
+                  style={{
+                    fontFamily: "var(--font-inter, sans-serif)",
+                    color: pathname === link.href ? "#C6A86B" : "#0D0D0D",
+                  }}
+                >
+                  {link.label}
+                </Link>
+              ))}
+              <Link
+                href="/contact"
+                onClick={() => setMenuOpen(false)}
+                className="mt-2 py-3 text-center text-[10px] tracking-[0.25em] uppercase font-medium border border-[#C6A86B] text-[#C6A86B] hover:bg-[#C6A86B] hover:text-[#F5F3EF] transition-all duration-300"
+                style={{ fontFamily: "var(--font-inter, sans-serif)" }}
+              >
+                Enquire
+              </Link>
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 }

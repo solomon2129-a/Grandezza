@@ -4,12 +4,15 @@ import Link from "next/link";
 import { ArrowRight, Check } from "lucide-react";
 import SectionWrapper from "@/components/SectionWrapper";
 import CTASection from "@/components/CTASection";
+import AnimateIn from "@/components/AnimateIn";
+import { fadeLeft, fadeRight, fadeUp } from "@/lib/animations";
 import { PROCESS_STEPS } from "@/lib/constants";
+import { ServiceImageAccordion } from "@/components/ui/interactive-image-accordion";
 
 export const metadata: Metadata = {
   title: "Services | Grandezza",
   description:
-    "Grandezza offers end-to-end luxury interior design, turnkey projects, renovation, custom furniture, and construction services.",
+    "End-to-end luxury interior design, turnkey construction, renovation, custom furniture, and construction services.",
 };
 
 const DETAILED_SERVICES = [
@@ -17,7 +20,7 @@ const DETAILED_SERVICES = [
     title: "Interior Design",
     eyebrow: "01",
     description:
-      "Our design team combines global aesthetics with contextual sensitivity to craft spaces that are both breathtaking and deeply personal. We work across every scale — from intimate private residences to sprawling corporate environments.",
+      "Our design team combines global aesthetics with contextual sensitivity to craft spaces that are both breathtaking and deeply personal — from intimate residences to sprawling corporate environments.",
     features: [
       "Concept development & mood boards",
       "3D visualization & photorealistic rendering",
@@ -32,7 +35,7 @@ const DETAILED_SERVICES = [
     title: "Turnkey Projects",
     eyebrow: "02",
     description:
-      "Our signature offering — complete design-to-delivery execution with zero coordination overhead for the client. One point of contact, one contract, one team responsible for everything.",
+      "Our signature offering — complete design-to-delivery execution with zero coordination overhead. One point of contact, one contract, one team responsible for everything.",
     features: [
       "Single-vendor accountability",
       "Integrated design and build",
@@ -48,7 +51,7 @@ const DETAILED_SERVICES = [
     title: "Renovation",
     eyebrow: "03",
     description:
-      "We transform existing spaces into extraordinary ones. Whether it's a single room refresh or a full-building overhaul, our renovation services are executed with surgical precision and minimal disruption.",
+      "We transform existing spaces into extraordinary ones. Whether a single room or a full building overhaul, our renovation services are executed with surgical precision and minimal disruption.",
     features: [
       "Site assessment & feasibility",
       "Structural modifications",
@@ -63,7 +66,7 @@ const DETAILED_SERVICES = [
     title: "Custom Furniture",
     eyebrow: "04",
     description:
-      "With our in-house fabrication facilities, we design and manufacture bespoke furniture pieces that are built to last and crafted to impress. Every piece is made to exact specifications, using premium materials.",
+      "With our in-house fabrication facilities, we design and manufacture bespoke furniture pieces built to last and crafted to impress — using premium materials, made to exact specifications.",
     features: [
       "Custom design for each piece",
       "Premium wood, metal & fabric options",
@@ -79,7 +82,7 @@ const DETAILED_SERVICES = [
     title: "Construction",
     eyebrow: "05",
     description:
-      "Backed by Sharieff Creations' 30-year track record, our construction services cover everything from structural builds to precision fit-outs. We operate with full compliance, safety, and transparency.",
+      "Backed by Sharieff Creations' 30-year track record, our construction services cover everything from structural builds to precision fit-outs — operated with full compliance and transparency.",
     features: [
       "Civil & structural works",
       "MEP (mechanical, electrical, plumbing)",
@@ -96,70 +99,92 @@ export default function ServicesPage() {
   return (
     <>
       {/* PAGE HERO */}
-      <section className="relative h-[60vh] min-h-[450px] flex items-end justify-start overflow-hidden">
+      <section
+        className="relative flex items-end justify-start overflow-hidden"
+        style={{ height: "60vh", minHeight: "460px" }}
+      >
         <Image
           src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=1800&q=85"
-          alt="Services hero"
+          alt="Services"
           fill
           priority
           className="object-cover"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-black/60" />
-        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 pb-20 w-full">
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(to bottom, rgba(13,13,13,0.3) 0%, rgba(13,13,13,0.75) 100%)",
+          }}
+        />
+        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-16 pb-20 w-full">
           <p
-            className="text-[#C9A84C] text-[10px] tracking-[0.4em] uppercase mb-4"
-            style={{ fontFamily: "var(--font-montserrat, sans-serif)" }}
+            className="text-[#C6A86B] text-[9px] tracking-[0.45em] uppercase mb-4"
+            style={{ fontFamily: "var(--font-inter, sans-serif)" }}
           >
             What We Offer
           </p>
           <h1
-            className="text-5xl md:text-7xl font-light text-white leading-tight"
-            style={{ fontFamily: "var(--font-cormorant, Georgia, serif)" }}
+            className="text-5xl md:text-7xl font-normal text-[#F5F3EF] leading-[1.0] tracking-[-0.02em]"
+            style={{ fontFamily: "var(--font-playfair, Georgia, serif)" }}
           >
             Our Services
           </h1>
         </div>
       </section>
 
-      {/* SERVICES LIST */}
+      {/* INTERACTIVE ACCORDION */}
+      <section style={{ background: "#0D0D0D" }} className="px-6 lg:px-16 pt-28 pb-20">
+        <div className="max-w-7xl mx-auto">
+          <AnimateIn>
+            <p
+              className="text-[9px] tracking-[0.4em] uppercase text-[#C6A86B] mb-5"
+              style={{ fontFamily: "var(--font-inter, sans-serif)" }}
+            >
+              Hover to Explore
+            </p>
+            <h2
+              className="text-4xl md:text-5xl font-normal text-[#F5F3EF] leading-[1.1] tracking-[-0.02em] mb-14 max-w-xl"
+              style={{ fontFamily: "var(--font-playfair, Georgia, serif)" }}
+            >
+              Five Ways We Deliver
+            </h2>
+          </AnimateIn>
+          <ServiceImageAccordion />
+        </div>
+      </section>
+
+      {/* DETAILED SERVICES */}
       {DETAILED_SERVICES.map((service, idx) => (
-        <SectionWrapper
-          key={service.title}
-          className={idx % 2 !== 0 ? "bg-[#F2EDE8]" : ""}
-        >
-          <div
-            className={`grid grid-cols-1 lg:grid-cols-2 gap-16 items-center ${
-              service.reversed ? "lg:[direction:rtl]" : ""
-            }`}
-          >
-            <div className={service.reversed ? "lg:[direction:ltr]" : ""}>
+        <SectionWrapper key={service.title} surface={idx % 2 !== 0}>
+          <div className={`grid grid-cols-1 lg:grid-cols-2 gap-20 items-center`}>
+            <AnimateIn variants={service.reversed ? fadeRight : fadeLeft} className={service.reversed ? "order-1 lg:order-2" : ""}>
               <p
-                className="text-[#C9A84C] text-[10px] tracking-[0.35em] uppercase mb-2"
-                style={{ fontFamily: "var(--font-montserrat, sans-serif)" }}
+                className="text-[#C6A86B] text-[9px] tracking-[0.4em] uppercase mb-4"
+                style={{ fontFamily: "var(--font-inter, sans-serif)" }}
               >
                 {service.eyebrow}
               </p>
-              <div className="w-12 h-px bg-[#C9A84C] mb-6" />
               <h2
-                className="text-4xl md:text-5xl font-light text-[#1A1A1A] leading-tight mb-6"
-                style={{ fontFamily: "var(--font-cormorant, Georgia, serif)" }}
+                className="text-4xl md:text-5xl font-normal text-[#0D0D0D] leading-[1.1] tracking-[-0.02em] mb-6"
+                style={{ fontFamily: "var(--font-playfair, Georgia, serif)" }}
               >
                 {service.title}
               </h2>
               <p
-                className="text-[#6B6560] text-sm leading-7 mb-8"
-                style={{ fontFamily: "var(--font-montserrat, sans-serif)" }}
+                className="text-[#8A8580] text-sm leading-7 mb-8"
+                style={{ fontFamily: "var(--font-inter, sans-serif)" }}
               >
                 {service.description}
               </p>
               <ul className="space-y-3 mb-10">
                 {service.features.map((feature) => (
                   <li key={feature} className="flex items-center gap-3">
-                    <Check size={13} className="text-[#C9A84C] shrink-0" />
+                    <Check size={12} className="text-[#C6A86B] shrink-0" />
                     <span
-                      className="text-[#6B6560] text-xs"
-                      style={{ fontFamily: "var(--font-montserrat, sans-serif)" }}
+                      className="text-[#8A8580] text-xs"
+                      style={{ fontFamily: "var(--font-inter, sans-serif)" }}
                     >
                       {feature}
                     </span>
@@ -168,14 +193,18 @@ export default function ServicesPage() {
               </ul>
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-3 text-[#1A1A1A] text-[10px] tracking-[0.25em] uppercase font-medium border-b border-[#C9A84C] pb-1 hover:text-[#C9A84C] transition-colors duration-300"
-                style={{ fontFamily: "var(--font-montserrat, sans-serif)" }}
+                className="inline-flex items-center gap-3 text-[#0D0D0D] text-[10px] tracking-[0.25em] uppercase font-medium border-b border-[#C6A86B] pb-1 hover:text-[#C6A86B] transition-colors duration-300"
+                style={{ fontFamily: "var(--font-inter, sans-serif)" }}
               >
-                Enquire Now <ArrowRight size={13} />
+                Enquire Now <ArrowRight size={12} />
               </Link>
-            </div>
-            <div className={`relative ${service.reversed ? "lg:[direction:ltr]" : ""}`}>
-              <div className="relative h-[500px] overflow-hidden">
+            </AnimateIn>
+
+            <AnimateIn
+              variants={service.reversed ? fadeLeft : fadeRight}
+              className={service.reversed ? "order-2 lg:order-1" : ""}
+            >
+              <div className="relative overflow-hidden" style={{ height: "520px" }}>
                 <Image
                   src={service.image}
                   alt={service.title}
@@ -184,53 +213,53 @@ export default function ServicesPage() {
                   sizes="(max-width: 1024px) 100vw, 50vw"
                 />
               </div>
-            </div>
+            </AnimateIn>
           </div>
         </SectionWrapper>
       ))}
 
       {/* PROCESS */}
       <SectionWrapper dark>
-        <p
-          className="text-[10px] tracking-[0.35em] uppercase text-[#C9A84C] mb-4"
-          style={{ fontFamily: "var(--font-montserrat, sans-serif)" }}
-        >
-          How We Work
-        </p>
-        <div className="w-12 h-px bg-[#C9A84C] mb-6" />
-        <h2
-          className="text-4xl md:text-5xl font-light text-white leading-tight mb-16 max-w-xl"
-          style={{ fontFamily: "var(--font-cormorant, Georgia, serif)" }}
-        >
-          Our Delivery Process
-        </h2>
-        <div className="space-y-0">
-          {PROCESS_STEPS.map((step, index) => (
-            <div
-              key={step.step}
-              className="flex gap-8 py-10 border-b border-[#2A2A2A] last:border-0 group"
-            >
-              <span
-                className="text-5xl font-light text-[#2A2A2A] group-hover:text-[#C9A84C] transition-colors duration-500 w-20 shrink-0"
-                style={{ fontFamily: "var(--font-cormorant, Georgia, serif)" }}
-              >
-                {step.step}
-              </span>
-              <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-16 flex-1">
-                <h3
-                  className="text-white text-2xl font-light w-48 shrink-0"
-                  style={{ fontFamily: "var(--font-cormorant, Georgia, serif)" }}
+        <AnimateIn>
+          <p
+            className="text-[9px] tracking-[0.4em] uppercase text-[#C6A86B] mb-5"
+            style={{ fontFamily: "var(--font-inter, sans-serif)" }}
+          >
+            How We Work
+          </p>
+          <h2
+            className="text-4xl md:text-5xl font-normal text-[#F5F3EF] leading-[1.1] tracking-[-0.02em] mb-16 max-w-xl"
+            style={{ fontFamily: "var(--font-playfair, Georgia, serif)" }}
+          >
+            Our Delivery Process
+          </h2>
+        </AnimateIn>
+        <div>
+          {PROCESS_STEPS.map((step, i) => (
+            <AnimateIn key={step.step} delay={i * 0.08}>
+              <div className="flex gap-10 py-10 border-b border-[#1F1F1F] last:border-0 group hover:pl-2 transition-all duration-500">
+                <span
+                  className="text-4xl font-normal text-[#1F1F1F] group-hover:text-[#C6A86B] transition-colors duration-500 w-16 shrink-0"
+                  style={{ fontFamily: "var(--font-playfair, Georgia, serif)" }}
                 >
-                  {step.title}
-                </h3>
-                <p
-                  className="text-[#9E9890] text-sm leading-7"
-                  style={{ fontFamily: "var(--font-montserrat, sans-serif)" }}
-                >
-                  {step.description}
-                </p>
+                  {step.step}
+                </span>
+                <div className="flex flex-col md:flex-row md:items-start gap-3 md:gap-16 flex-1">
+                  <h3
+                    className="text-[#F5F3EF] text-xl font-normal w-36 shrink-0"
+                    style={{ fontFamily: "var(--font-playfair, Georgia, serif)" }}
+                  >
+                    {step.title}
+                  </h3>
+                  <p
+                    className="text-[#6B6560] text-sm leading-7"
+                    style={{ fontFamily: "var(--font-inter, sans-serif)" }}
+                  >
+                    {step.description}
+                  </p>
+                </div>
               </div>
-            </div>
+            </AnimateIn>
           ))}
         </div>
       </SectionWrapper>
