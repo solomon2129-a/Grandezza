@@ -14,9 +14,7 @@
   --border: #DDD9D2;
 }
 
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
   background: var(--background);
@@ -26,27 +24,51 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-::selection {
-  background-color: #C6A86B;
-  color: #F5F3EF;
-}
+::selection { background-color: #C6A86B; color: #F5F3EF; }
 
-::-webkit-scrollbar {
-  width: 4px;
-}
-::-webkit-scrollbar-track {
-  background: #F5F3EF;
-}
-::-webkit-scrollbar-thumb {
-  background: #C6A86B;
-  border-radius: 2px;
-}
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: #F5F3EF; }
+::-webkit-scrollbar-thumb { background: #C6A86B; border-radius: 2px; }
 
+/* Hero slow zoom */
 @keyframes slowZoom {
   from { transform: scale(1); }
   to   { transform: scale(1.08); }
 }
+.hero-zoom { animation: slowZoom 14s ease-in-out infinite alternate; }
 
-.hero-zoom {
-  animation: slowZoom 14s ease-in-out infinite alternate;
+/* Marquee / ticker */
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
 }
+.marquee-inner {
+  display: flex;
+  width: max-content;
+  animation: ticker 32s linear infinite;
+}
+.marquee-inner:hover { animation-play-state: paused; }
+
+/* Grain texture overlay for dark sections */
+.grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+  mix-blend-mode: overlay;
+}
+
+/* Vertical text utility */
+.vertical-text {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+}
+
+/* Image reveal on hover */
+.img-reveal { overflow: hidden; }
+.img-reveal img { transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1); }
+.img-reveal:hover img { transform: scale(1.05); }
