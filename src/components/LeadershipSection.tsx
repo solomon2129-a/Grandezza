@@ -34,36 +34,6 @@ export default function LeadershipSection() {
             custom={i}
             className="group"
           >
-            {/* Monogram portrait */}
-            <div
-              className="relative overflow-hidden mb-7 h-[220px] sm:h-[280px] flex items-center justify-center"
-              style={{ background: "#0D0D0D" }}
-            >
-              {/* Gold top accent */}
-              <div
-                className="absolute top-0 left-0 right-0 h-px scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-left"
-                style={{ background: "#C6A86B" }}
-              />
-              {/* Decorative lines */}
-              <div className="absolute inset-8 border border-[#1A1A1A] group-hover:border-[#C6A86B]/20 transition-colors duration-700" />
-              {/* Initials */}
-              <span
-                className="relative text-[#C6A86B]/20 group-hover:text-[#C6A86B]/30 transition-colors duration-700 select-none font-normal leading-none"
-                style={{
-                  fontFamily: "var(--font-playfair, Georgia, serif)",
-                  fontSize: "clamp(5rem, 14vw, 8rem)",
-                }}
-                aria-hidden="true"
-              >
-                {leader.initials}
-              </span>
-              {/* Gold bottom accent */}
-              <div
-                className="absolute bottom-0 left-0 right-0 h-px scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"
-                style={{ background: "#C6A86B" }}
-              />
-            </div>
-
             {/* Info */}
             <div className="px-1">
               <h3
