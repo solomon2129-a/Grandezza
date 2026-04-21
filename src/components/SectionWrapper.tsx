@@ -13,7 +13,7 @@ export default function SectionWrapper({
   dark = false,
   surface = false,
 }: SectionWrapperProps) {
-  const bg = dark ? "#0D0D0D" : surface ? "#ECEAE5" : "#F5F3EF";
+  const bg = dark ? "#080808" : surface ? "#0F0F0F" : "#080808";
   return (
     <section
       id={id}

@@ -25,8 +25,9 @@ export default function Navbar() {
     <header
       className="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
       style={{
-        background: transparent ? "transparent" : "#F5F3EF",
-        borderBottom: transparent ? "none" : "1px solid #DDD9D2",
+        background: transparent ? "transparent" : "rgba(8,8,8,0.95)",
+        borderBottom: transparent ? "none" : "1px solid #1A1A18",
+        backdropFilter: transparent ? "none" : "blur(12px)",
       }}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-16 h-20 flex items-center justify-between">
@@ -36,7 +37,7 @@ export default function Navbar() {
             className="text-xl tracking-[0.3em] uppercase transition-colors duration-300"
             style={{
               fontFamily: "var(--font-playfair, Georgia, serif)",
-              color: transparent ? "#F5F3EF" : "#0D0D0D",
+              color: "#F0EDE8",
               fontWeight: 400,
             }}
           >
@@ -62,13 +63,7 @@ export default function Navbar() {
               className="relative text-[11px] tracking-[0.18em] uppercase font-medium transition-colors duration-300 hover:text-[#C6A86B]"
               style={{
                 fontFamily: "var(--font-inter, sans-serif)",
-                color: transparent
-                  ? pathname === link.href
-                    ? "#C6A86B"
-                    : "rgba(245,243,239,0.75)"
-                  : pathname === link.href
-                  ? "#C6A86B"
-                  : "#0D0D0D",
+                color: pathname === link.href ? "#C6A86B" : "rgba(240,237,232,0.65)",
               }}
             >
               {link.label}
@@ -79,22 +74,8 @@ export default function Navbar() {
           ))}
           <Link
             href="/contact"
-            className="ml-2 px-7 py-2.5 text-[10px] tracking-[0.25em] uppercase font-medium border transition-all duration-300"
-            style={{
-              fontFamily: "var(--font-inter, sans-serif)",
-              borderColor: transparent ? "rgba(245,243,239,0.4)" : "#C6A86B",
-              color: transparent ? "#F5F3EF" : "#C6A86B",
-            }}
-            onMouseEnter={(e) => {
-              (e.currentTarget as HTMLAnchorElement).style.background = "#C6A86B";
-              (e.currentTarget as HTMLAnchorElement).style.color = "#F5F3EF";
-              (e.currentTarget as HTMLAnchorElement).style.borderColor = "#C6A86B";
-            }}
-            onMouseLeave={(e) => {
-              (e.currentTarget as HTMLAnchorElement).style.background = "transparent";
-              (e.currentTarget as HTMLAnchorElement).style.color = transparent ? "#F5F3EF" : "#C6A86B";
-              (e.currentTarget as HTMLAnchorElement).style.borderColor = transparent ? "rgba(245,243,239,0.4)" : "#C6A86B";
-            }}
+            className="ml-2 px-7 py-2.5 text-[10px] tracking-[0.25em] uppercase font-medium border border-[#C6A86B]/50 text-[#C6A86B] transition-all duration-300 hover:bg-[#C6A86B] hover:text-[#080808] hover:border-[#C6A86B]"
+            style={{ fontFamily: "var(--font-inter, sans-serif)" }}
           >
             Enquire
           </Link>
@@ -103,7 +84,7 @@ export default function Navbar() {
         {/* Mobile Toggle */}
         <button
           className="lg:hidden p-1 transition-colors"
-          style={{ color: transparent ? "#F5F3EF" : "#0D0D0D" }}
+          style={{ color: "#F0EDE8" }}
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle menu"
         >
@@ -121,7 +102,7 @@ export default function Navbar() {
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
             className="lg:hidden overflow-hidden"
-            style={{ background: "#F5F3EF", borderTop: "1px solid #DDD9D2" }}
+            style={{ background: "#0A0A0A", borderTop: "1px solid #1A1A18" }}
           >
             <nav className="flex flex-col px-6 py-8 gap-6">
               {NAV_LINKS.map((link) => (
@@ -132,7 +113,7 @@ export default function Navbar() {
                   className="text-[11px] tracking-[0.2em] uppercase font-medium transition-colors hover:text-[#C6A86B]"
                   style={{
                     fontFamily: "var(--font-inter, sans-serif)",
-                    color: pathname === link.href ? "#C6A86B" : "#0D0D0D",
+                    color: pathname === link.href ? "#C6A86B" : "rgba(240,237,232,0.65)",
                   }}
                 >
                   {link.label}
@@ -141,7 +122,7 @@ export default function Navbar() {
               <Link
                 href="/contact"
                 onClick={() => setMenuOpen(false)}
-                className="mt-2 py-3 text-center text-[10px] tracking-[0.25em] uppercase font-medium border border-[#C6A86B] text-[#C6A86B] hover:bg-[#C6A86B] hover:text-[#F5F3EF] transition-all duration-300"
+                className="mt-2 py-3 text-center text-[10px] tracking-[0.25em] uppercase font-medium border border-[#C6A86B] text-[#C6A86B] hover:bg-[#C6A86B] hover:text-[#080808] transition-all duration-300"
                 style={{ fontFamily: "var(--font-inter, sans-serif)" }}
               >
                 Enquire

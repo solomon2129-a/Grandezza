@@ -23,8 +23,8 @@ export default function TestimonialCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-60px" }}
       transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: index * 0.15 }}
-      className="group relative flex flex-col h-full"
-      style={{ background: "#F5F3EF" }}
+      className="group relative flex flex-col h-full p-8 border border-[#1A1A18] hover:border-[#C6A86B]/40 transition-colors duration-500"
+      style={{ background: "#0C0C0C" }}
     >
       {/* Top gold accent */}
       <div className="h-px w-12 bg-[#C6A86B] mb-8 group-hover:w-full transition-all duration-700" />
@@ -32,7 +32,7 @@ export default function TestimonialCard({
       {/* Large decorative quote mark */}
       <div className="relative mb-4">
         <span
-          className="absolute -top-2 -left-1 text-[120px] leading-none text-[#C6A86B]/10 select-none font-normal"
+          className="absolute -top-2 -left-1 text-[120px] leading-none text-[#C6A86B]/[0.06] select-none font-normal"
           style={{ fontFamily: "var(--font-playfair, Georgia, serif)" }}
           aria-hidden="true"
         >
@@ -48,7 +48,7 @@ export default function TestimonialCard({
 
       {/* Quote text */}
       <p
-        className="text-[#0D0D0D] leading-[1.85] flex-1 mb-8 italic"
+        className="text-[#9A9590] leading-[1.85] flex-1 mb-8 italic"
         style={{
           fontFamily: "var(--font-playfair, Georgia, serif)",
           fontSize: "1.05rem",
@@ -58,10 +58,10 @@ export default function TestimonialCard({
       </p>
 
       {/* Author */}
-      <div className="flex items-center gap-4 pt-6 border-t border-[#DDD9D2]">
+      <div className="flex items-center gap-4 pt-6 border-t border-[#1A1A18]">
         <div
           className="w-12 h-12 shrink-0 flex items-center justify-center ring-1 ring-[#C6A86B]/30 group-hover:ring-[#C6A86B] transition-all duration-300"
-          style={{ background: "#0D0D0D" }}
+          style={{ background: "#161614" }}
         >
           <span
             className="text-[#C6A86B] text-sm font-normal"
@@ -72,7 +72,7 @@ export default function TestimonialCard({
         </div>
         <div>
           <p
-            className="text-[#0D0D0D] text-sm font-medium"
+            className="text-[#F0EDE8] text-sm font-medium"
             style={{ fontFamily: "var(--font-inter, sans-serif)" }}
           >
             {name}

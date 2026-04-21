@@ -17,10 +17,10 @@ export const metadata: Metadata = {
 };
 
 const TIMELINE = [
-  { year: "1994", label: "Sharieff Creations founded" },
-  { year: "2010", label: "Expanded to 10+ cities across India" },
-  { year: "2020", label: "Grandezza launched as luxury design arm" },
-  { year: "2024", label: "500+ specialist team, 1200+ projects" },
+  { year: "1994", label: "Sharieff Creations founded", detail: "Established in Mumbai with a focus on premium fit-outs and civil works." },
+  { year: "2010", label: "Expanded to 10+ cities across India", detail: "Growing our footprint across Delhi, Pune, Bangalore, Hyderabad, and Goa." },
+  { year: "2020", label: "Grandezza launched as luxury design arm", detail: "A dedicated brand born for clients who demand precision at the highest level." },
+  { year: "2024", label: "500+ specialist team, 1200+ projects", detail: "India's most capable luxury design-and-build team under one roof." },
 ];
 
 const STATS = [
@@ -33,7 +33,7 @@ const STATS = [
 export default function AboutPage() {
   return (
     <>
-      {/* PAGE HERO — centered editorial */}
+      {/* PAGE HERO */}
       <section
         className="relative flex flex-col items-center justify-center overflow-hidden text-center"
         style={{ height: "80vh", minHeight: "520px" }}
@@ -45,7 +45,7 @@ export default function AboutPage() {
           className="object-cover"
           sizes="100vw"
         />
-        <div className="absolute inset-0" style={{ background: "rgba(13,13,13,0.60)" }} />
+        <div className="absolute inset-0" style={{ background: "rgba(6,6,6,0.65)" }} />
 
         <div className="relative z-10 px-6 flex flex-col items-center">
           <div className="h-px w-16 bg-[#C6A86B] mb-8" />
@@ -56,7 +56,7 @@ export default function AboutPage() {
             Our Story
           </p>
           <h1
-            className="font-normal text-[#F5F3EF] leading-[1.05] tracking-[-0.02em]"
+            className="font-normal text-[#F0EDE8] leading-[1.05] tracking-[-0.02em]"
             style={{
               fontFamily: "var(--font-playfair, Georgia, serif)",
               fontSize: "clamp(3rem, 7vw, 5.5rem)",
@@ -69,20 +69,23 @@ export default function AboutPage() {
       </section>
 
       {/* ANIMATED STAT COUNTERS */}
-      <section className="relative grain" style={{ background: "#0D0D0D" }}>
+      <section className="relative grain" style={{ background: "#0A0A0A" }}>
         <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-16 py-16 sm:py-20">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-0">
             {STATS.map((stat, i) => (
               <AnimateIn key={stat.label} delay={i * 0.1}>
-                <div className="relative text-center px-4 sm:px-6 py-10 sm:py-14 group">
+                <div className="relative text-center px-4 sm:px-6 py-10 sm:py-14 group cursor-default">
                   <div className="absolute top-0 left-1/2 -translate-x-1/2 w-8 h-px bg-[#C6A86B] group-hover:w-full transition-all duration-700" />
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                    style={{ background: "radial-gradient(ellipse at center, rgba(198,168,107,0.04) 0%, transparent 70%)" }}
+                  />
                   <p
-                    className="font-normal text-[#C6A86B] mb-3 leading-none"
+                    className="font-normal text-[#C6A86B] mb-3 leading-none transition-transform duration-300 group-hover:scale-105"
                     style={{ fontFamily: "var(--font-playfair, Georgia, serif)", fontSize: "clamp(2.8rem, 5vw, 4.5rem)" }}
                   >
                     <CountUp target={stat.value} suffix={stat.suffix} />
                   </p>
-                  <p className="text-[#4A4A46] text-[9px] tracking-[0.3em] uppercase" style={{ fontFamily: "var(--font-inter, sans-serif)" }}>
+                  <p className="text-[#3A3733] text-[9px] tracking-[0.3em] uppercase group-hover:text-[#6B6560] transition-colors duration-300" style={{ fontFamily: "var(--font-inter, sans-serif)" }}>
                     {stat.label}
                   </p>
                 </div>
@@ -97,27 +100,27 @@ export default function AboutPage() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           <AnimateIn variants={fadeLeft}>
             <p className="text-[9px] tracking-[0.4em] uppercase text-[#C6A86B] mb-5" style={{ fontFamily: "var(--font-inter, sans-serif)" }}>Who We Are</p>
-            <h2 className="text-4xl md:text-5xl font-normal text-[#0D0D0D] leading-[1.1] tracking-[-0.02em] mb-7" style={{ fontFamily: "var(--font-playfair, Georgia, serif)" }}>
+            <h2 className="text-4xl md:text-5xl font-normal text-[#F0EDE8] leading-[1.1] tracking-[-0.02em] mb-7" style={{ fontFamily: "var(--font-playfair, Georgia, serif)" }}>
               Luxury Defined by <span className="italic text-[#C6A86B]">Legacy</span>
             </h2>
-            <p className="text-[#8A8580] text-sm leading-7 mb-5" style={{ fontFamily: "var(--font-inter, sans-serif)" }}>
+            <p className="text-[#6B6560] text-sm leading-7 mb-5" style={{ fontFamily: "var(--font-inter, sans-serif)" }}>
               Grandezza was born from a simple but powerful idea: luxury design should never be
               separated from flawless execution. In a market crowded with firms that sketch
               beautiful concepts but struggle to build them, we set out to be different.
             </p>
-            <p className="text-[#8A8580] text-sm leading-7 mb-5" style={{ fontFamily: "var(--font-inter, sans-serif)" }}>
+            <p className="text-[#6B6560] text-sm leading-7 mb-5" style={{ fontFamily: "var(--font-inter, sans-serif)" }}>
               We are the premium design arm of Sharieff Creations — a firm with over 30 years
               in the construction and fit-out industry. That heritage gives us what most luxury
-              design firms simply don't have.
+              design firms simply don&apos;t have.
             </p>
-            <p className="text-[#8A8580] text-sm leading-7 mb-10" style={{ fontFamily: "var(--font-inter, sans-serif)" }}>
+            <p className="text-[#6B6560] text-sm leading-7 mb-10" style={{ fontFamily: "var(--font-inter, sans-serif)" }}>
               With an in-house team of 500+ specialists — designers, architects, engineers,
               craftsmen, and project managers — Grandezza is built to deliver at scale,
               without ever compromising on detail.
             </p>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-3 text-[#0D0D0D] text-[10px] tracking-[0.25em] uppercase font-medium border-b border-[#C6A86B] pb-1 hover:text-[#C6A86B] transition-colors duration-300"
+              className="inline-flex items-center gap-3 text-[#F0EDE8] text-[10px] tracking-[0.25em] uppercase font-medium border-b border-[#C6A86B] pb-1 hover:text-[#C6A86B] transition-colors duration-300"
               style={{ fontFamily: "var(--font-inter, sans-serif)" }}
             >
               Start a Conversation <ArrowRight size={12} />
@@ -129,10 +132,10 @@ export default function AboutPage() {
               <div className="relative overflow-hidden img-reveal h-[300px] sm:h-[420px] lg:h-[580px]">
                 <Image src="/assets/dining-3.png" alt="Grandezza interiors" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw" />
               </div>
-              <div className="absolute -bottom-5 -left-5 w-28 h-28 border border-[#C6A86B] -z-10" />
+              <div className="absolute -bottom-5 -left-5 w-28 h-28 border border-[#C6A86B]/30 -z-10" />
               <div className="absolute -right-4 bottom-16 hidden lg:block px-6 py-5" style={{ background: "#0D0D0D" }}>
                 <p className="text-[#C6A86B] text-3xl font-normal" style={{ fontFamily: "var(--font-playfair, Georgia, serif)" }}>30+</p>
-                <p className="text-[#F5F3EF]/50 text-[8px] tracking-[0.25em] uppercase mt-1" style={{ fontFamily: "var(--font-inter, sans-serif)" }}>Years</p>
+                <p className="text-[#F0EDE8]/40 text-[8px] tracking-[0.25em] uppercase mt-1" style={{ fontFamily: "var(--font-inter, sans-serif)" }}>Years</p>
               </div>
             </div>
           </AnimateIn>
@@ -141,7 +144,7 @@ export default function AboutPage() {
 
       <GoldDivider className="max-w-7xl mx-auto px-6 lg:px-16" />
 
-      {/* SHARIEFF CREATIONS + TIMELINE */}
+      {/* SHARIEFF CREATIONS + INTERACTIVE TIMELINE */}
       <SectionWrapper surface>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
           <AnimateIn variants={fadeLeft} className="order-2 lg:order-1">
@@ -149,29 +152,44 @@ export default function AboutPage() {
               <div className="relative overflow-hidden img-reveal h-[260px] sm:h-[380px] lg:h-[520px]">
                 <Image src="/assets/dining-2.png" alt="Sharieff Creations" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw" />
               </div>
-              <div className="absolute -top-5 -right-5 w-28 h-28 border border-[#C6A86B] -z-10" />
+              <div className="absolute -top-5 -right-5 w-28 h-28 border border-[#C6A86B]/30 -z-10" />
             </div>
           </AnimateIn>
 
           <AnimateIn variants={fadeRight} className="order-1 lg:order-2">
             <p className="text-[9px] tracking-[0.4em] uppercase text-[#C6A86B] mb-5" style={{ fontFamily: "var(--font-inter, sans-serif)" }}>The Foundation</p>
-            <h2 className="text-4xl md:text-5xl font-normal text-[#0D0D0D] leading-[1.1] tracking-[-0.02em] mb-7" style={{ fontFamily: "var(--font-playfair, Georgia, serif)" }}>
+            <h2 className="text-4xl md:text-5xl font-normal text-[#F0EDE8] leading-[1.1] tracking-[-0.02em] mb-7" style={{ fontFamily: "var(--font-playfair, Georgia, serif)" }}>
               Sharieff Creations — <span className="italic">30 Years</span> of Building Excellence
             </h2>
-            <p className="text-[#8A8580] text-sm leading-7 mb-10" style={{ fontFamily: "var(--font-inter, sans-serif)" }}>
+            <p className="text-[#6B6560] text-sm leading-7 mb-10" style={{ fontFamily: "var(--font-inter, sans-serif)" }}>
               Founded on principles of quality, integrity, and precision, Sharieff Creations has
-              spent three decades earning the trust of India's most discerning clients. Their
-              portfolio spans 1,200+ completed projects across 15+ cities.
+              spent three decades earning the trust of India&apos;s most discerning clients.
             </p>
-            <div className="space-y-0 border-l-2 border-[#C6A86B]/30 pl-6">
+
+            {/* Interactive timeline */}
+            <div className="relative pl-6">
+              {/* Vertical line */}
+              <div className="absolute left-0 top-2 bottom-2 w-px bg-[#1E1E1C]" />
+
               {TIMELINE.map((item, i) => (
                 <AnimateIn key={item.year} delay={i * 0.1}>
-                  <div className="flex items-start gap-5 py-4 group">
-                    <span className="text-[#C6A86B] text-sm font-medium shrink-0 w-10" style={{ fontFamily: "var(--font-inter, sans-serif)" }}>
+                  <div className="group relative flex flex-col gap-1.5 py-5 cursor-default">
+                    {/* Dot */}
+                    <div
+                      className="absolute -left-[22px] top-7 w-2.5 h-2.5 border border-[#C6A86B]/40 group-hover:border-[#C6A86B] group-hover:bg-[#C6A86B] transition-all duration-300"
+                      style={{ background: "transparent" }}
+                    />
+                    <span className="text-[#C6A86B] text-sm font-medium" style={{ fontFamily: "var(--font-inter, sans-serif)" }}>
                       {item.year}
                     </span>
-                    <span className="text-[#8A8580] text-sm group-hover:text-[#0D0D0D] transition-colors" style={{ fontFamily: "var(--font-inter, sans-serif)" }}>
+                    <span className="text-[#F0EDE8] text-sm group-hover:text-[#F0EDE8] transition-colors" style={{ fontFamily: "var(--font-inter, sans-serif)" }}>
                       {item.label}
+                    </span>
+                    <span
+                      className="text-[#4A4A46] text-xs leading-5 max-h-0 overflow-hidden group-hover:max-h-16 transition-all duration-500"
+                      style={{ fontFamily: "var(--font-inter, sans-serif)" }}
+                    >
+                      {item.detail}
                     </span>
                   </div>
                 </AnimateIn>
@@ -188,7 +206,7 @@ export default function AboutPage() {
             <div className="w-10 h-px bg-[#C6A86B]" />
             <p className="text-[9px] tracking-[0.4em] uppercase text-[#C6A86B]" style={{ fontFamily: "var(--font-inter, sans-serif)" }}>The Team</p>
           </div>
-          <h2 className="text-4xl md:text-5xl font-normal text-[#0D0D0D] leading-[1.1] tracking-[-0.02em] mb-16" style={{ fontFamily: "var(--font-playfair, Georgia, serif)" }}>
+          <h2 className="text-4xl md:text-5xl font-normal text-[#F0EDE8] leading-[1.1] tracking-[-0.02em] mb-16" style={{ fontFamily: "var(--font-playfair, Georgia, serif)" }}>
             Leadership
           </h2>
         </AnimateIn>
@@ -197,30 +215,56 @@ export default function AboutPage() {
 
       <GoldDivider className="max-w-7xl mx-auto px-6 lg:px-16" />
 
-      {/* VALUES */}
+      {/* VALUES — interactive hover cards */}
       <SectionWrapper surface>
         <AnimateIn variants={fadeUp}>
           <p className="text-[9px] tracking-[0.4em] uppercase text-[#C6A86B] mb-5" style={{ fontFamily: "var(--font-inter, sans-serif)" }}>Our Principles</p>
-          <h2 className="text-4xl md:text-5xl font-normal text-[#0D0D0D] leading-[1.1] tracking-[-0.02em] mb-16 max-w-lg" style={{ fontFamily: "var(--font-playfair, Georgia, serif)" }}>
+          <h2 className="text-4xl md:text-5xl font-normal text-[#F0EDE8] leading-[1.1] tracking-[-0.02em] mb-16 max-w-lg" style={{ fontFamily: "var(--font-playfair, Georgia, serif)" }}>
             What We Stand For
           </h2>
         </AnimateIn>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-0">
           {WHY_US.map((item, i) => (
             <AnimateIn key={item.title} delay={i * 0.1}>
-              <div className="relative p-8 border border-[#DDD9D2] hover:border-[#C6A86B] transition-colors duration-500 h-full overflow-hidden group">
+              <div className="relative p-8 lg:p-10 border border-[#1A1A18] hover:border-transparent transition-all duration-500 h-full overflow-hidden group cursor-default">
+                {/* Gold fill on hover */}
+                <div
+                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                  style={{ background: "linear-gradient(135deg, rgba(198,168,107,0.06) 0%, transparent 60%)" }}
+                />
+                {/* Top border reveal */}
+                <div className="absolute top-0 left-0 right-0 h-px bg-[#C6A86B] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+
                 <span
-                  className="absolute -right-3 -bottom-4 text-[#0D0D0D]/[0.03] select-none pointer-events-none font-normal leading-none"
+                  className="absolute -right-2 -bottom-3 text-white/[0.025] select-none pointer-events-none font-normal leading-none"
                   aria-hidden="true"
                   style={{ fontFamily: "var(--font-playfair, Georgia, serif)", fontSize: "7rem" }}
                 >
                   {i + 1}
                 </span>
-                <span className="text-3xl font-normal text-[#C6A86B] block mb-5" style={{ fontFamily: "var(--font-playfair, Georgia, serif)" }}>
+
+                <span
+                  className="text-3xl font-normal text-[#C6A86B]/40 group-hover:text-[#C6A86B] block mb-6 transition-colors duration-500"
+                  style={{ fontFamily: "var(--font-playfair, Georgia, serif)" }}
+                >
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <h3 className="text-lg font-normal text-[#0D0D0D] mb-3" style={{ fontFamily: "var(--font-playfair, Georgia, serif)" }}>{item.title}</h3>
-                <p className="text-[#8A8580] text-xs leading-6" style={{ fontFamily: "var(--font-inter, sans-serif)" }}>{item.description}</p>
+                <h3 className="text-lg font-normal text-[#F0EDE8] mb-3" style={{ fontFamily: "var(--font-playfair, Georgia, serif)" }}>
+                  {item.title}
+                </h3>
+                <p className="text-[#4A4A46] group-hover:text-[#6B6560] text-xs leading-6 transition-colors duration-300" style={{ fontFamily: "var(--font-inter, sans-serif)" }}>
+                  {item.description}
+                </p>
+
+                {/* Bottom link reveal */}
+                <div
+                  className="flex items-center gap-2 mt-6 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0"
+                >
+                  <div className="h-px w-6 bg-[#C6A86B]" />
+                  <span className="text-[#C6A86B] text-[8px] tracking-[0.3em] uppercase" style={{ fontFamily: "var(--font-inter, sans-serif)" }}>
+                    Our approach
+                  </span>
+                </div>
               </div>
             </AnimateIn>
           ))}

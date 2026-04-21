@@ -106,14 +106,14 @@ export default function ServicesPage() {
           fill priority className="object-cover"
           sizes="100vw"
         />
-        <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, rgba(13,13,13,0.2) 0%, rgba(13,13,13,0.8) 100%)" }} />
+        <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, rgba(6,6,6,0.2) 0%, rgba(6,6,6,0.85) 100%)" }} />
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-16 pb-20 w-full">
           <div className="flex items-center gap-4 mb-5">
             <div className="w-8 h-px bg-[#C6A86B]" />
             <p className="text-[#C6A86B] text-[9px] tracking-[0.45em] uppercase" style={{ fontFamily: "var(--font-inter, sans-serif)" }}>What We Offer</p>
           </div>
           <h1
-            className="text-5xl md:text-7xl font-normal text-[#F5F3EF] leading-[1.0] tracking-[-0.02em]"
+            className="text-5xl md:text-7xl font-normal text-[#F0EDE8] leading-[1.0] tracking-[-0.02em]"
             style={{ fontFamily: "var(--font-playfair, Georgia, serif)" }}
           >
             Our <span className="italic">Services</span>
@@ -122,13 +122,13 @@ export default function ServicesPage() {
       </section>
 
       {/* INTERACTIVE ACCORDION */}
-      <section className="relative grain" style={{ background: "#0D0D0D" }}>
+      <section className="relative grain" style={{ background: "#0A0A0A" }}>
         <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-16 pt-16 sm:pt-24 lg:pt-28 pb-14 sm:pb-20">
           <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-10 sm:mb-14 gap-4 sm:gap-6">
             <AnimateIn variants={fadeLeft}>
               <p className="text-[9px] tracking-[0.4em] uppercase text-[#C6A86B] mb-5" style={{ fontFamily: "var(--font-inter, sans-serif)" }}>Hover to Explore</p>
               <h2
-                className="text-4xl md:text-5xl font-normal text-[#F5F3EF] leading-[1.1] tracking-[-0.02em]"
+                className="text-4xl md:text-5xl font-normal text-[#F0EDE8] leading-[1.1] tracking-[-0.02em]"
                 style={{ fontFamily: "var(--font-playfair, Georgia, serif)" }}
               >
                 Five Ways We Deliver
@@ -158,29 +158,29 @@ export default function ServicesPage() {
             >
               <div className="flex items-center gap-4 mb-6">
                 <span
-                  className="text-5xl font-normal text-[#DDD9D2]"
+                  className="text-5xl font-normal text-[#282825]"
                   style={{ fontFamily: "var(--font-playfair, Georgia, serif)" }}
                 >
                   {service.eyebrow}
                 </span>
-                <div className="flex-1 h-px bg-[#DDD9D2]" />
+                <div className="flex-1 h-px bg-[#1E1E1C]" />
               </div>
               <h2
-                className="text-4xl md:text-5xl font-normal text-[#0D0D0D] leading-[1.1] tracking-[-0.02em] mb-6"
+                className="text-4xl md:text-5xl font-normal text-[#F0EDE8] leading-[1.1] tracking-[-0.02em] mb-6"
                 style={{ fontFamily: "var(--font-playfair, Georgia, serif)" }}
               >
                 {service.title}
               </h2>
-              <p className="text-[#8A8580] text-sm leading-7 mb-8" style={{ fontFamily: "var(--font-inter, sans-serif)" }}>
+              <p className="text-[#6B6560] text-sm leading-7 mb-8" style={{ fontFamily: "var(--font-inter, sans-serif)" }}>
                 {service.description}
               </p>
               <ul className="space-y-3 mb-10">
                 {service.features.map((feature) => (
                   <li key={feature} className="flex items-center gap-3 group">
-                    <div className="w-4 h-4 border border-[#DDD9D2] group-hover:border-[#C6A86B] flex items-center justify-center shrink-0 transition-colors duration-300">
+                    <div className="w-4 h-4 border border-[#1E1E1C] group-hover:border-[#C6A86B] flex items-center justify-center shrink-0 transition-colors duration-300">
                       <Check size={9} className="text-[#C6A86B]" />
                     </div>
-                    <span className="text-[#8A8580] text-xs" style={{ fontFamily: "var(--font-inter, sans-serif)" }}>
+                    <span className="text-[#6B6560] text-xs" style={{ fontFamily: "var(--font-inter, sans-serif)" }}>
                       {feature}
                     </span>
                   </li>
@@ -188,7 +188,7 @@ export default function ServicesPage() {
               </ul>
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-3 text-[#0D0D0D] text-[10px] tracking-[0.25em] uppercase font-medium border-b border-[#C6A86B] pb-1 hover:text-[#C6A86B] transition-colors duration-300"
+                className="inline-flex items-center gap-3 text-[#F0EDE8] text-[10px] tracking-[0.25em] uppercase font-medium border-b border-[#C6A86B] pb-1 hover:text-[#C6A86B] transition-colors duration-300"
                 style={{ fontFamily: "var(--font-inter, sans-serif)" }}
               >
                 Enquire Now <ArrowRight size={12} />
@@ -206,10 +206,9 @@ export default function ServicesPage() {
                   fill className="object-cover"
                   sizes="(max-width: 1024px) 100vw, 50vw"
                 />
-                {/* Eyebrow overlay */}
                 <div className="absolute top-6 left-6">
                   <span
-                    className="text-white/20 font-normal"
+                    className="text-white/[0.12] font-normal"
                     style={{
                       fontFamily: "var(--font-playfair, Georgia, serif)",
                       fontSize: "5rem",
@@ -226,12 +225,12 @@ export default function ServicesPage() {
       ))}
 
       {/* PROCESS */}
-      <section className="relative grain overflow-hidden" style={{ background: "#0D0D0D" }}>
+      <section className="relative grain overflow-hidden" style={{ background: "#0A0A0A" }}>
         <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-16 py-16 sm:py-24 lg:py-36">
           <AnimateIn variants={fadeUp}>
             <p className="text-[9px] tracking-[0.4em] uppercase text-[#C6A86B] mb-5" style={{ fontFamily: "var(--font-inter, sans-serif)" }}>How We Work</p>
             <h2
-              className="text-4xl md:text-5xl font-normal text-[#F5F3EF] leading-[1.1] tracking-[-0.02em] mb-16 max-w-xl"
+              className="text-4xl md:text-5xl font-normal text-[#F0EDE8] leading-[1.1] tracking-[-0.02em] mb-16 max-w-xl"
               style={{ fontFamily: "var(--font-playfair, Georgia, serif)" }}
             >
               Our Delivery Process
@@ -240,13 +239,14 @@ export default function ServicesPage() {
           <div>
             {PROCESS_STEPS.map((step, i) => (
               <AnimateIn key={step.step} delay={i * 0.08}>
-                <div className="relative flex gap-5 sm:gap-8 lg:gap-16 py-8 sm:py-10 border-b border-[#1A1A1A] last:border-0 group">
+                <div className="relative flex gap-5 sm:gap-8 lg:gap-16 py-8 sm:py-10 border-b border-[#141414] last:border-0 group cursor-default">
+                  {/* Large ghost number */}
                   <div
                     className="absolute right-0 top-1/2 -translate-y-1/2 select-none pointer-events-none hidden sm:block"
                     aria-hidden="true"
                   >
                     <span
-                      className="text-white/[0.025] font-normal leading-none"
+                      className="text-white/[0.015] group-hover:text-white/[0.04] font-normal leading-none transition-colors duration-500"
                       style={{
                         fontFamily: "var(--font-playfair, Georgia, serif)",
                         fontSize: "clamp(5rem, 12vw, 10rem)",
@@ -255,18 +255,29 @@ export default function ServicesPage() {
                       {step.step}
                     </span>
                   </div>
-                  <div className="shrink-0 w-10 h-10 sm:w-14 sm:h-14 border border-[#1F1F1F] group-hover:border-[#C6A86B] flex items-center justify-center transition-colors duration-500">
+
+                  {/* Step indicator box */}
+                  <div className="shrink-0 w-10 h-10 sm:w-14 sm:h-14 border border-[#1E1E1C] group-hover:border-[#C6A86B] group-hover:bg-[#C6A86B]/5 flex items-center justify-center transition-all duration-500">
                     <span className="text-[#C6A86B] text-sm font-normal" style={{ fontFamily: "var(--font-playfair, Georgia, serif)" }}>
                       {step.step}
                     </span>
                   </div>
+
                   <div className="flex flex-col md:flex-row md:items-center gap-3 md:gap-16 flex-1 sm:pr-24">
-                    <h3 className="text-[#F5F3EF] text-lg sm:text-xl font-normal md:w-40 shrink-0" style={{ fontFamily: "var(--font-playfair, Georgia, serif)" }}>
+                    <h3
+                      className="text-[#F0EDE8] text-lg sm:text-xl font-normal md:w-40 shrink-0 group-hover:text-[#C6A86B] transition-colors duration-400"
+                      style={{ fontFamily: "var(--font-playfair, Georgia, serif)" }}
+                    >
                       {step.title}
                     </h3>
-                    <p className="text-[#6B6560] text-sm leading-7" style={{ fontFamily: "var(--font-inter, sans-serif)" }}>
+                    <p className="text-[#4A4A46] group-hover:text-[#6B6560] text-sm leading-7 transition-colors duration-300" style={{ fontFamily: "var(--font-inter, sans-serif)" }}>
                       {step.description}
                     </p>
+                  </div>
+
+                  {/* Right arrow reveal */}
+                  <div className="absolute right-4 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-x-2 group-hover:translate-x-0 hidden lg:block">
+                    <div className="w-8 h-px bg-[#C6A86B]" />
                   </div>
                 </div>
               </AnimateIn>

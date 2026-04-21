@@ -38,7 +38,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${playfair.variable} ${inter.variable}`}>
-      <body className="min-h-screen flex flex-col" style={{ background: "#F5F3EF", color: "#0D0D0D" }}>
+      <body className="min-h-screen flex flex-col" style={{ background: "#080808", color: "#F0EDE8" }}>
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />

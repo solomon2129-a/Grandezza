@@ -15,6 +15,7 @@ import {
   WHY_US,
   SERVICES,
   PROJECTS,
+  PROCESS_STEPS,
 } from "@/lib/constants";
 
 export default function HomePage() {
@@ -27,14 +28,13 @@ export default function HomePage() {
       <Marquee />
 
       {/* ─── STATS ─── */}
-      <section className="relative grain" style={{ background: "#0D0D0D" }}>
-        {/* Large decorative watermark */}
+      <section className="relative grain" style={{ background: "#0A0A0A" }}>
         <div
           className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden select-none"
           aria-hidden="true"
         >
           <span
-            className="text-white/[0.02] font-normal leading-none whitespace-nowrap"
+            className="text-white/[0.018] font-normal leading-none whitespace-nowrap"
             style={{
               fontFamily: "var(--font-playfair, Georgia, serif)",
               fontSize: "clamp(6rem, 20vw, 18rem)",
@@ -49,7 +49,6 @@ export default function HomePage() {
             {STATS.map((stat, i) => (
               <AnimateIn key={stat.label} delay={i * 0.12}>
                 <div className="relative text-center px-4 sm:px-6 py-8 sm:py-10 lg:py-12 group">
-                  {/* Top gold line that grows on hover */}
                   <div className="absolute top-0 left-1/2 -translate-x-1/2 w-8 h-px bg-[#C6A86B] group-hover:w-full transition-all duration-700" />
                   <p
                     className="font-normal text-[#C6A86B] mb-3 leading-none"
@@ -61,7 +60,7 @@ export default function HomePage() {
                     {stat.value}
                   </p>
                   <p
-                    className="text-[#4A4A46] text-[9px] tracking-[0.3em] uppercase"
+                    className="text-[#3A3733] text-[9px] tracking-[0.3em] uppercase"
                     style={{ fontFamily: "var(--font-inter, sans-serif)" }}
                   >
                     {stat.label}
@@ -70,6 +69,53 @@ export default function HomePage() {
               </AnimateIn>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ─── PHILOSOPHY BLOCK ─── */}
+      <section className="relative overflow-hidden" style={{ background: "#060606" }}>
+        {/* Faint background word */}
+        <div
+          className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden select-none"
+          aria-hidden="true"
+        >
+          <span
+            className="font-normal leading-none whitespace-nowrap text-white/[0.013]"
+            style={{
+              fontFamily: "var(--font-playfair, Georgia, serif)",
+              fontSize: "clamp(8rem, 25vw, 22rem)",
+            }}
+          >
+            LUXURY
+          </span>
+        </div>
+
+        <div className="relative max-w-4xl mx-auto px-5 sm:px-8 lg:px-16 py-28 sm:py-36 lg:py-48 text-center">
+          <AnimateIn variants={fadeUp}>
+            <div className="w-px h-14 bg-[#C6A86B]/40 mx-auto mb-10" />
+            <p
+              className="text-[9px] tracking-[0.55em] uppercase text-[#C6A86B] mb-10"
+              style={{ fontFamily: "var(--font-inter, sans-serif)" }}
+            >
+              Our Philosophy
+            </p>
+            <blockquote
+              className="font-normal italic text-[#F0EDE8] leading-[1.2] tracking-[-0.015em]"
+              style={{
+                fontFamily: "var(--font-playfair, Georgia, serif)",
+                fontSize: "clamp(1.7rem, 4vw, 3rem)",
+              }}
+            >
+              &ldquo;Luxury is not a matter of price. It is an obligation to flawless execution — in every stitch, every joint, every material choice.&rdquo;
+            </blockquote>
+            <p
+              className="text-[#C6A86B]/70 text-[10px] tracking-[0.3em] uppercase mt-10 mb-10"
+              style={{ fontFamily: "var(--font-inter, sans-serif)" }}
+            >
+              — Sharieff Creations, Est. 1994
+            </p>
+            <div className="w-px h-14 bg-[#C6A86B]/40 mx-auto" />
+          </AnimateIn>
         </div>
       </section>
 
@@ -84,14 +130,14 @@ export default function HomePage() {
               Our Legacy
             </p>
             <h2
-              className="text-4xl md:text-5xl lg:text-[3.5rem] font-normal text-[#0D0D0D] leading-[1.1] tracking-[-0.02em] mb-7"
+              className="text-4xl md:text-5xl lg:text-[3.5rem] font-normal text-[#F0EDE8] leading-[1.1] tracking-[-0.02em] mb-7"
               style={{ fontFamily: "var(--font-playfair, Georgia, serif)" }}
             >
               Grandezza — The Modern Face of a{" "}
               <span className="italic text-[#C6A86B]">30-Year Legacy</span>
             </h2>
             <p
-              className="text-[#8A8580] text-sm leading-7 mb-5"
+              className="text-[#6B6560] text-sm leading-7 mb-5"
               style={{ fontFamily: "var(--font-inter, sans-serif)" }}
             >
               Grandezza is the luxury design and construction arm of Sharieff
@@ -100,7 +146,7 @@ export default function HomePage() {
               depth of 500+ specialists.
             </p>
             <p
-              className="text-[#8A8580] text-sm leading-7 mb-10"
+              className="text-[#6B6560] text-sm leading-7 mb-10"
               style={{ fontFamily: "var(--font-inter, sans-serif)" }}
             >
               From luxury residences and corporate headquarters to custom
@@ -108,7 +154,6 @@ export default function HomePage() {
               our responsibility.
             </p>
 
-            {/* Two key facts */}
             <div className="grid grid-cols-2 gap-5 mb-10">
               {[
                 { num: "1994", label: "Year Founded" },
@@ -116,16 +161,16 @@ export default function HomePage() {
               ].map((f) => (
                 <div
                   key={f.label}
-                  className="border border-[#DDD9D2] p-5 hover:border-[#C6A86B] transition-colors duration-300"
+                  className="border border-[#1E1E1C] p-5 hover:border-[#C6A86B] transition-colors duration-300"
                 >
                   <p
-                    className="text-3xl font-normal text-[#0D0D0D] mb-1"
+                    className="text-3xl font-normal text-[#F0EDE8] mb-1"
                     style={{ fontFamily: "var(--font-playfair, Georgia, serif)" }}
                   >
                     {f.num}
                   </p>
                   <p
-                    className="text-[#8A8580] text-[9px] tracking-[0.25em] uppercase"
+                    className="text-[#3A3733] text-[9px] tracking-[0.25em] uppercase"
                     style={{ fontFamily: "var(--font-inter, sans-serif)" }}
                   >
                     {f.label}
@@ -136,7 +181,7 @@ export default function HomePage() {
 
             <Link
               href="/about"
-              className="inline-flex items-center gap-3 text-[#0D0D0D] text-[10px] tracking-[0.25em] uppercase font-medium border-b border-[#C6A86B] pb-1 hover:text-[#C6A86B] transition-colors duration-300"
+              className="inline-flex items-center gap-3 text-[#F0EDE8] text-[10px] tracking-[0.25em] uppercase font-medium border-b border-[#C6A86B] pb-1 hover:text-[#C6A86B] transition-colors duration-300"
               style={{ fontFamily: "var(--font-inter, sans-serif)" }}
             >
               Our Story <ArrowRight size={12} />
@@ -145,7 +190,6 @@ export default function HomePage() {
 
           <AnimateIn variants={fadeRight}>
             <div className="relative">
-              {/* Main image */}
               <div className="relative overflow-hidden img-reveal h-[320px] sm:h-[440px] lg:h-[580px]">
                 <Image
                   src="/assets/master-bedroom-1.png"
@@ -155,11 +199,9 @@ export default function HomePage() {
                   sizes="(max-width: 1024px) 100vw, 50vw"
                 />
               </div>
-              {/* Offset gold box */}
               <div
-                className="absolute -bottom-6 -left-6 w-32 h-32 border border-[#C6A86B] -z-10"
+                className="absolute -bottom-6 -left-6 w-32 h-32 border border-[#C6A86B]/30 -z-10"
               />
-              {/* Floating badge */}
               <div
                 className="absolute -right-4 top-1/2 -translate-y-1/2 hidden lg:flex flex-col items-center gap-3 py-6 px-4"
                 style={{ background: "#0D0D0D" }}
@@ -172,7 +214,7 @@ export default function HomePage() {
                 </span>
                 <div className="w-px h-8 bg-[#C6A86B]/40" />
                 <span
-                  className="vertical-text text-[#F5F3EF]/40 text-[8px] tracking-[0.25em] uppercase"
+                  className="vertical-text text-[#F0EDE8]/30 text-[8px] tracking-[0.25em] uppercase"
                   style={{ fontFamily: "var(--font-inter, sans-serif)" }}
                 >
                   Est. 1994
@@ -200,12 +242,11 @@ export default function HomePage() {
                 />
               </div>
               <div
-                className="absolute -top-6 -right-6 w-28 h-28 border border-[#C6A86B] -z-10"
+                className="absolute -top-6 -right-6 w-28 h-28 border border-[#C6A86B]/30 -z-10"
               />
-              {/* Stats overlay card */}
               <div
                 className="absolute bottom-8 left-8 p-6 hidden md:block"
-                style={{ background: "rgba(13,13,13,0.9)", backdropFilter: "blur(8px)" }}
+                style={{ background: "rgba(8,8,8,0.92)", backdropFilter: "blur(8px)" }}
               >
                 <p
                   className="text-[#C6A86B] text-4xl font-normal mb-1"
@@ -214,7 +255,7 @@ export default function HomePage() {
                   500+
                 </p>
                 <p
-                  className="text-[#F5F3EF]/60 text-[9px] tracking-[0.25em] uppercase"
+                  className="text-[#F0EDE8]/40 text-[9px] tracking-[0.25em] uppercase"
                   style={{ fontFamily: "var(--font-inter, sans-serif)" }}
                 >
                   In-House Specialists
@@ -231,7 +272,7 @@ export default function HomePage() {
               Why Grandezza
             </p>
             <h2
-              className="text-4xl md:text-5xl font-normal text-[#0D0D0D] leading-[1.1] tracking-[-0.02em] mb-12"
+              className="text-4xl md:text-5xl font-normal text-[#F0EDE8] leading-[1.1] tracking-[-0.02em] mb-12"
               style={{ fontFamily: "var(--font-playfair, Georgia, serif)" }}
             >
               Built for those who demand the finest
@@ -240,11 +281,11 @@ export default function HomePage() {
               {WHY_US.map((item, i) => (
                 <div
                   key={item.title}
-                  className="flex gap-6 py-8 border-b border-[#DDD9D2] last:border-0 group"
+                  className="flex gap-6 py-8 border-b border-[#1E1E1C] last:border-0 group"
                 >
                   <div className="shrink-0 pt-1">
                     <span
-                      className="text-2xl font-normal text-[#DDD9D2] group-hover:text-[#C6A86B] transition-colors duration-300"
+                      className="text-2xl font-normal text-[#282825] group-hover:text-[#C6A86B] transition-colors duration-300"
                       style={{ fontFamily: "var(--font-playfair, Georgia, serif)" }}
                     >
                       {String(i + 1).padStart(2, "0")}
@@ -252,13 +293,13 @@ export default function HomePage() {
                   </div>
                   <div className="flex-1">
                     <h3
-                      className="text-[#0D0D0D] text-lg font-normal mb-2"
+                      className="text-[#F0EDE8] text-lg font-normal mb-2"
                       style={{ fontFamily: "var(--font-playfair, Georgia, serif)" }}
                     >
                       {item.title}
                     </h3>
                     <p
-                      className="text-[#8A8580] text-sm leading-6"
+                      className="text-[#6B6560] text-sm leading-6"
                       style={{ fontFamily: "var(--font-inter, sans-serif)" }}
                     >
                       {item.description}
@@ -272,7 +313,7 @@ export default function HomePage() {
       </SectionWrapper>
 
       {/* ─── SERVICES ─── */}
-      <section className="relative grain overflow-hidden" style={{ background: "#0D0D0D" }}>
+      <section className="relative grain overflow-hidden" style={{ background: "#0A0A0A" }}>
         <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-16 py-16 sm:py-24 lg:py-32">
           <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-14 lg:mb-20 gap-6">
             <AnimateIn variants={fadeLeft}>
@@ -283,7 +324,7 @@ export default function HomePage() {
                 What We Offer
               </p>
               <h2
-                className="text-4xl md:text-5xl font-normal text-[#F5F3EF] leading-[1.1] tracking-[-0.02em]"
+                className="text-4xl md:text-5xl font-normal text-[#F0EDE8] leading-[1.1] tracking-[-0.02em]"
                 style={{ fontFamily: "var(--font-playfair, Georgia, serif)" }}
               >
                 Five Ways We Deliver
@@ -303,7 +344,7 @@ export default function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-0">
             {SERVICES.map((service, i) => (
               <AnimateIn key={service.title} delay={i * 0.07}>
-                <div className="relative overflow-hidden group border-r border-[#1A1A1A] last:border-0 h-[380px] sm:h-[420px]">
+                <div className="relative overflow-hidden group border-r border-[#141414] last:border-0 h-[380px] sm:h-[420px]">
                   <Image
                     src={service.image}
                     alt={service.title}
@@ -313,7 +354,7 @@ export default function HomePage() {
                   />
                   <div
                     className="absolute inset-0 transition-opacity duration-500"
-                    style={{ background: "linear-gradient(to top, rgba(13,13,13,0.92) 0%, rgba(13,13,13,0.45) 50%, rgba(13,13,13,0.2) 100%)" }}
+                    style={{ background: "linear-gradient(to top, rgba(6,6,6,0.95) 0%, rgba(6,6,6,0.45) 50%, rgba(6,6,6,0.15) 100%)" }}
                   />
                   <div className="absolute inset-0 flex flex-col justify-end p-6">
                     <span
@@ -323,13 +364,13 @@ export default function HomePage() {
                       {String(i + 1).padStart(2, "0")}
                     </span>
                     <h3
-                      className="text-[#F5F3EF] text-lg font-normal leading-tight mb-3"
+                      className="text-[#F0EDE8] text-lg font-normal leading-tight mb-3"
                       style={{ fontFamily: "var(--font-playfair, Georgia, serif)" }}
                     >
                       {service.title}
                     </h3>
                     <p
-                      className="text-[#6B6560] text-[11px] leading-5 mb-5 max-h-0 overflow-hidden group-hover:max-h-24 transition-all duration-500"
+                      className="text-[#5A5550] text-[11px] leading-5 mb-5 max-h-0 overflow-hidden group-hover:max-h-24 transition-all duration-500"
                       style={{ fontFamily: "var(--font-inter, sans-serif)" }}
                     >
                       {service.description}
@@ -366,27 +407,25 @@ export default function HomePage() {
             </div>
             <Link
               href="/projects"
-              className="hidden sm:inline-flex items-center gap-3 text-[#0D0D0D] text-[10px] tracking-[0.25em] uppercase font-medium border-b border-[#C6A86B] pb-1 hover:text-[#C6A86B] transition-colors duration-300"
+              className="hidden sm:inline-flex items-center gap-3 text-[#F0EDE8] text-[10px] tracking-[0.25em] uppercase font-medium border-b border-[#C6A86B] pb-1 hover:text-[#C6A86B] transition-colors duration-300"
               style={{ fontFamily: "var(--font-inter, sans-serif)" }}
             >
               View All <ArrowRight size={12} />
             </Link>
           </div>
           <h2
-            className="text-4xl md:text-5xl font-normal text-[#0D0D0D] leading-[1.1] tracking-[-0.02em] mb-16"
+            className="text-4xl md:text-5xl font-normal text-[#F0EDE8] leading-[1.1] tracking-[-0.02em] mb-16"
             style={{ fontFamily: "var(--font-playfair, Georgia, serif)" }}
           >
             Selected Works
           </h2>
         </AnimateIn>
 
-        {/* Featured projects: 1 large + 2 smaller */}
         {(() => {
           const featured = PROJECTS.filter((p) => p.featured);
           const [first, ...rest] = featured;
           return (
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
-              {/* Large card */}
               <AnimateIn variants={fadeLeft}>
                 <Link href={`/projects/${first.slug}`} className="group block">
                   <div className="relative overflow-hidden h-[300px] sm:h-[440px] lg:h-[600px]">
@@ -397,11 +436,11 @@ export default function HomePage() {
                       className="object-cover transition-transform duration-700 group-hover:scale-105"
                       sizes="(max-width: 1024px) 100vw, 50vw"
                     />
-                    <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(13,13,13,0.7) 0%, transparent 55%)" }} />
+                    <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(6,6,6,0.75) 0%, transparent 55%)" }} />
                     <div className="absolute top-4 left-4">
                       <span
                         className="px-3 py-1 text-[8px] tracking-[0.25em] uppercase border border-white/25 text-white/80"
-                        style={{ fontFamily: "var(--font-inter, sans-serif)", background: "rgba(13,13,13,0.35)", backdropFilter: "blur(4px)" }}
+                        style={{ fontFamily: "var(--font-inter, sans-serif)", background: "rgba(6,6,6,0.45)", backdropFilter: "blur(4px)" }}
                       >
                         {first.category}
                       </span>
@@ -413,17 +452,16 @@ export default function HomePage() {
                     </div>
                     <div className="absolute bottom-6 left-6 right-6">
                       <span className="text-[#C6A86B] text-[9px] tracking-[0.3em] uppercase block mb-1" style={{ fontFamily: "var(--font-inter, sans-serif)" }}>{first.location}</span>
-                      <h3 className="text-[#F5F3EF] text-2xl font-normal" style={{ fontFamily: "var(--font-playfair, Georgia, serif)" }}>{first.title}</h3>
+                      <h3 className="text-[#F0EDE8] text-2xl font-normal" style={{ fontFamily: "var(--font-playfair, Georgia, serif)" }}>{first.title}</h3>
                     </div>
                   </div>
-                  <div className="py-4 border-b border-[#DDD9D2] group-hover:border-[#C6A86B] transition-colors duration-500">
-                    <h3 className="text-[#0D0D0D] text-lg font-normal" style={{ fontFamily: "var(--font-playfair, Georgia, serif)" }}>{first.title}</h3>
-                    <p className="text-[#8A8580] text-xs mt-0.5" style={{ fontFamily: "var(--font-inter, sans-serif)" }}>{first.category} · {first.location} · {first.area}</p>
+                  <div className="py-4 border-b border-[#1E1E1C] group-hover:border-[#C6A86B] transition-colors duration-500">
+                    <h3 className="text-[#F0EDE8] text-lg font-normal" style={{ fontFamily: "var(--font-playfair, Georgia, serif)" }}>{first.title}</h3>
+                    <p className="text-[#4A4A46] text-xs mt-0.5" style={{ fontFamily: "var(--font-inter, sans-serif)" }}>{first.category} · {first.location} · {first.area}</p>
                   </div>
                 </Link>
               </AnimateIn>
 
-              {/* Two stacked cards */}
               <div className="flex flex-col gap-5">
                 {rest.map((project, i) => (
                   <AnimateIn key={project.id} variants={fadeRight} delay={i * 0.1}>
@@ -436,9 +474,9 @@ export default function HomePage() {
                           className="object-cover transition-transform duration-700 group-hover:scale-105"
                           sizes="(max-width: 1024px) 100vw, 50vw"
                         />
-                        <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(13,13,13,0.7) 0%, transparent 55%)" }} />
+                        <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(6,6,6,0.75) 0%, transparent 55%)" }} />
                         <div className="absolute top-4 left-4">
-                          <span className="px-3 py-1 text-[8px] tracking-[0.25em] uppercase border border-white/25 text-white/80" style={{ fontFamily: "var(--font-inter, sans-serif)", background: "rgba(13,13,13,0.35)", backdropFilter: "blur(4px)" }}>{project.category}</span>
+                          <span className="px-3 py-1 text-[8px] tracking-[0.25em] uppercase border border-white/25 text-white/80" style={{ fontFamily: "var(--font-inter, sans-serif)", background: "rgba(6,6,6,0.45)", backdropFilter: "blur(4px)" }}>{project.category}</span>
                         </div>
                         <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                           <div className="w-9 h-9 border border-[#C6A86B] flex items-center justify-center">
@@ -447,12 +485,12 @@ export default function HomePage() {
                         </div>
                         <div className="absolute bottom-5 left-5 right-5">
                           <span className="text-[#C6A86B] text-[9px] tracking-[0.3em] uppercase block mb-1" style={{ fontFamily: "var(--font-inter, sans-serif)" }}>{project.location}</span>
-                          <h3 className="text-[#F5F3EF] text-xl font-normal" style={{ fontFamily: "var(--font-playfair, Georgia, serif)" }}>{project.title}</h3>
+                          <h3 className="text-[#F0EDE8] text-xl font-normal" style={{ fontFamily: "var(--font-playfair, Georgia, serif)" }}>{project.title}</h3>
                         </div>
                       </div>
-                      <div className="py-3 border-b border-[#DDD9D2] group-hover:border-[#C6A86B] transition-colors duration-500">
-                        <h3 className="text-[#0D0D0D] text-base font-normal" style={{ fontFamily: "var(--font-playfair, Georgia, serif)" }}>{project.title}</h3>
-                        <p className="text-[#8A8580] text-xs mt-0.5" style={{ fontFamily: "var(--font-inter, sans-serif)" }}>{project.category} · {project.location} · {project.area}</p>
+                      <div className="py-3 border-b border-[#1E1E1C] group-hover:border-[#C6A86B] transition-colors duration-500">
+                        <h3 className="text-[#F0EDE8] text-base font-normal" style={{ fontFamily: "var(--font-playfair, Georgia, serif)" }}>{project.title}</h3>
+                        <p className="text-[#4A4A46] text-xs mt-0.5" style={{ fontFamily: "var(--font-inter, sans-serif)" }}>{project.category} · {project.location} · {project.area}</p>
                       </div>
                     </Link>
                   </AnimateIn>
@@ -466,7 +504,7 @@ export default function HomePage() {
           <div className="mt-12 flex justify-center sm:justify-start">
             <Link
               href="/projects"
-              className="inline-flex items-center gap-3 text-[#0D0D0D] text-[10px] tracking-[0.25em] uppercase font-medium border-b border-[#C6A86B] pb-1 hover:text-[#C6A86B] transition-colors duration-300 sm:hidden"
+              className="inline-flex items-center gap-3 text-[#F0EDE8] text-[10px] tracking-[0.25em] uppercase font-medium border-b border-[#C6A86B] pb-1 hover:text-[#C6A86B] transition-colors duration-300 sm:hidden"
               style={{ fontFamily: "var(--font-inter, sans-serif)" }}
             >
               View All Projects <ArrowRight size={12} />
@@ -490,7 +528,7 @@ export default function HomePage() {
             </p>
           </div>
           <h2
-            className="text-4xl md:text-5xl font-normal text-[#0D0D0D] leading-[1.1] tracking-[-0.02em] mb-20 max-w-xl"
+            className="text-4xl md:text-5xl font-normal text-[#F0EDE8] leading-[1.1] tracking-[-0.02em] mb-20 max-w-xl"
             style={{ fontFamily: "var(--font-playfair, Georgia, serif)" }}
           >
             Trusted by those who expect nothing but excellence
@@ -510,6 +548,68 @@ export default function HomePage() {
           ))}
         </div>
       </SectionWrapper>
+
+      {/* ─── PROCESS STRIP ─── */}
+      <section className="relative grain overflow-hidden" style={{ background: "#060606" }}>
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-16 py-16 sm:py-20 lg:py-28">
+          <AnimateIn variants={fadeUp}>
+            <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-14 gap-4">
+              <div>
+                <p
+                  className="text-[9px] tracking-[0.4em] uppercase text-[#C6A86B] mb-4"
+                  style={{ fontFamily: "var(--font-inter, sans-serif)" }}
+                >
+                  How We Work
+                </p>
+                <h2
+                  className="text-4xl md:text-5xl font-normal text-[#F0EDE8] leading-[1.1] tracking-[-0.02em]"
+                  style={{ fontFamily: "var(--font-playfair, Georgia, serif)" }}
+                >
+                  Our Delivery Process
+                </h2>
+              </div>
+              <Link
+                href="/services"
+                className="inline-flex items-center gap-3 text-[#C6A86B] text-[10px] tracking-[0.25em] uppercase font-medium border-b border-[#C6A86B]/40 pb-1 hover:border-[#C6A86B] transition-colors duration-300"
+                style={{ fontFamily: "var(--font-inter, sans-serif)" }}
+              >
+                Our Services <ArrowRight size={12} />
+              </Link>
+            </div>
+          </AnimateIn>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-0">
+            {PROCESS_STEPS.map((step, i) => (
+              <AnimateIn key={step.step} delay={i * 0.08}>
+                <div className="relative p-6 lg:p-8 border-r border-[#141414] last:border-0 group min-h-[200px]">
+                  <div className="absolute top-0 left-0 right-0 h-px bg-[#1E1E1C] group-hover:bg-[#C6A86B]/40 transition-colors duration-500" />
+                  <span
+                    className="text-[#C6A86B]/25 font-normal block mb-6 leading-none select-none"
+                    style={{
+                      fontFamily: "var(--font-playfair, Georgia, serif)",
+                      fontSize: "3.5rem",
+                    }}
+                  >
+                    {step.step}
+                  </span>
+                  <h3
+                    className="text-[#F0EDE8] text-base font-normal mb-3"
+                    style={{ fontFamily: "var(--font-playfair, Georgia, serif)" }}
+                  >
+                    {step.title}
+                  </h3>
+                  <p
+                    className="text-[#4A4A46] text-[11px] leading-5"
+                    style={{ fontFamily: "var(--font-inter, sans-serif)" }}
+                  >
+                    {step.description}
+                  </p>
+                </div>
+              </AnimateIn>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* ─── CTA ─── */}
       <CTASection />

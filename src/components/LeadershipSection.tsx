@@ -37,7 +37,7 @@ export default function LeadershipSection() {
             {/* Info */}
             <div className="px-1">
               <h3
-                className="text-2xl font-normal text-[#0D0D0D] mb-1"
+                className="text-2xl font-normal text-[#F0EDE8] mb-1"
                 style={{ fontFamily: "var(--font-playfair, Georgia, serif)" }}
               >
                 {leader.name}

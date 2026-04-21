@@ -12,7 +12,7 @@ const ITEMS = [
 
 const SEPARATOR = (
   <span
-    className="mx-5 text-[#0D0D0D]/40 select-none"
+    className="mx-6 text-[#C6A86B]/50 select-none"
     aria-hidden="true"
   >
     ◆
@@ -24,14 +24,14 @@ export default function Marquee() {
 
   return (
     <div
-      className="overflow-hidden py-4 border-y border-[#C6A86B]/30"
-      style={{ background: "#C6A86B" }}
+      className="overflow-hidden py-5 border-y"
+      style={{ background: "#0A0A0A", borderColor: "#1E1E1C" }}
     >
       <div className="marquee-inner">
         {doubled.map((item, i) => (
           <span key={i} className="inline-flex items-center shrink-0">
             <span
-              className="text-[#0D0D0D] text-[9px] tracking-[0.35em] uppercase font-semibold shrink-0"
+              className="text-[#C6A86B] text-[9px] tracking-[0.4em] uppercase font-medium shrink-0"
               style={{ fontFamily: "var(--font-inter, sans-serif)" }}
             >
               {item}

@@ -28,9 +28,8 @@ export default function ProjectsPage() {
             backgroundPosition: "center",
           }}
         />
-        <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, rgba(13,13,13,0.2) 0%, rgba(13,13,13,0.8) 100%)" }} />
+        <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, rgba(6,6,6,0.2) 0%, rgba(6,6,6,0.85) 100%)" }} />
 
-        {/* Vertical project count */}
         <div className="absolute right-10 bottom-20 hidden lg:flex flex-col items-center gap-3">
           <span
             className="text-[#C6A86B] font-normal"
@@ -40,7 +39,7 @@ export default function ProjectsPage() {
           </span>
           <div className="w-px h-12 bg-[#C6A86B]/30" />
           <span
-            className="vertical-text text-white/30 text-[8px] tracking-[0.4em] uppercase"
+            className="vertical-text text-white/25 text-[8px] tracking-[0.4em] uppercase"
             style={{ fontFamily: "var(--font-inter, sans-serif)" }}
           >
             Projects
@@ -53,7 +52,7 @@ export default function ProjectsPage() {
             <p className="text-[#C6A86B] text-[9px] tracking-[0.45em] uppercase" style={{ fontFamily: "var(--font-inter, sans-serif)" }}>Portfolio</p>
           </div>
           <h1
-            className="text-5xl md:text-7xl font-normal text-[#F5F3EF] leading-[1.0] tracking-[-0.02em]"
+            className="text-5xl md:text-7xl font-normal text-[#F0EDE8] leading-[1.0] tracking-[-0.02em]"
             style={{ fontFamily: "var(--font-playfair, Georgia, serif)" }}
           >
             Our <span className="italic">Projects</span>
@@ -62,109 +61,172 @@ export default function ProjectsPage() {
       </section>
 
       {/* FILTER + GRID */}
-      <section style={{ background: "#F5F3EF" }} className="px-5 sm:px-8 lg:px-16 py-16 sm:py-24 lg:py-28">
+      <section style={{ background: "#080808" }} className="px-5 sm:px-8 lg:px-16 py-16 sm:py-24 lg:py-28">
         <div className="max-w-7xl mx-auto">
-          {/* Filter tabs */}
+
+          {/* Filter tabs — animated pill indicator */}
           <AnimateIn>
-            <div className="flex flex-wrap gap-2 mb-16">
+            <div className="flex flex-wrap items-center gap-0 mb-16 border-b border-[#1A1A18]">
               {CATEGORIES.map((cat) => (
                 <button
                   key={cat}
                   onClick={() => setActive(cat)}
-                  className="px-6 py-2.5 text-[10px] tracking-[0.2em] uppercase font-medium transition-all duration-300"
+                  className="relative px-6 py-4 text-[10px] tracking-[0.2em] uppercase font-medium transition-all duration-300 group"
                   style={{
                     fontFamily: "var(--font-inter, sans-serif)",
-                    background: active === cat ? "#0D0D0D" : "transparent",
-                    color: active === cat ? "#F5F3EF" : "#8A8580",
-                    border: active === cat ? "1px solid #0D0D0D" : "1px solid #DDD9D2",
+                    color: active === cat ? "#C6A86B" : "#3A3733",
                   }}
                 >
                   {cat}
                   {active === cat && (
-                    <span className="ml-2 text-[#C6A86B]">
-                      {filtered.length}
-                    </span>
+                    <motion.div
+                      layoutId="filter-indicator"
+                      className="absolute bottom-0 left-0 right-0 h-px bg-[#C6A86B]"
+                      transition={{ type: "spring", stiffness: 500, damping: 35 }}
+                    />
                   )}
+                  <span
+                    className="ml-2 text-[8px] opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+                    style={{ color: "#C6A86B" }}
+                  >
+                    {cat === "All" ? PROJECTS.length : PROJECTS.filter(p => p.category === cat).length}
+                  </span>
                 </button>
               ))}
+
+              {/* Active count */}
+              <div className="ml-auto pb-4 pr-1 hidden sm:block">
+                <motion.span
+                  key={filtered.length}
+                  initial={{ opacity: 0, y: 4 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="text-[#3A3733] text-[9px] tracking-[0.25em] uppercase"
+                  style={{ fontFamily: "var(--font-inter, sans-serif)" }}
+                >
+                  {filtered.length} {filtered.length === 1 ? "project" : "projects"}
+                </motion.span>
+              </div>
             </div>
           </AnimateIn>
 
           {/* Grid */}
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px"
+            style={{ background: "#1A1A18" }}
             variants={staggerContainer}
             initial="hidden"
             animate="visible"
             key={active}
           >
-            <AnimatePresence mode="wait">
-              {filtered.map((project, i) => (
+            <AnimatePresence mode="popLayout">
+              {filtered.map((project) => (
                 <motion.div
                   key={project.id}
                   variants={scaleIn}
                   initial="hidden"
                   animate="visible"
-                  exit="hidden"
+                  exit={{ opacity: 0, scale: 0.95 }}
+                  layout
+                  style={{ background: "#080808" }}
                 >
                   <Link href={`/projects/${project.slug}`} className="group block">
-                  <div className="relative overflow-hidden h-[240px] sm:h-[320px] lg:h-[380px]">
-                    <Image
-                      src={project.image}
-                      alt={project.title}
-                      fill
-                      className="object-cover transition-transform duration-700 group-hover:scale-105"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    />
-                    {/* Gradient */}
-                    <div
-                      className="absolute inset-0"
-                      style={{ background: "linear-gradient(to top, rgba(13,13,13,0.65) 0%, transparent 55%)" }}
-                    />
-                    {/* Category badge */}
-                    <div className="absolute top-4 left-4">
-                      <span
-                        className="px-3 py-1 text-[8px] tracking-[0.25em] uppercase border border-white/25 text-white/80"
-                        style={{
-                          fontFamily: "var(--font-inter, sans-serif)",
-                          background: "rgba(13,13,13,0.35)",
-                          backdropFilter: "blur(4px)",
-                        }}
+                    <div className="relative overflow-hidden h-[260px] sm:h-[320px] lg:h-[380px]">
+                      <Image
+                        src={project.image}
+                        alt={project.title}
+                        fill
+                        className="object-cover transition-transform duration-700 group-hover:scale-105"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      />
+
+                      {/* Base gradient */}
+                      <div
+                        className="absolute inset-0"
+                        style={{ background: "linear-gradient(to top, rgba(6,6,6,0.75) 0%, rgba(6,6,6,0.05) 50%)" }}
+                      />
+
+                      {/* Hover overlay */}
+                      <div
+                        className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                        style={{ background: "rgba(198,168,107,0.06)" }}
+                      />
+
+                      {/* Category badge */}
+                      <div className="absolute top-4 left-4">
+                        <span
+                          className="px-3 py-1 text-[8px] tracking-[0.25em] uppercase border border-white/20 text-white/75"
+                          style={{
+                            fontFamily: "var(--font-inter, sans-serif)",
+                            background: "rgba(6,6,6,0.4)",
+                            backdropFilter: "blur(4px)",
+                          }}
+                        >
+                          {project.category}
+                        </span>
+                      </div>
+
+                      {/* Year tag — reveals on hover */}
+                      <div
+                        className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-x-2 group-hover:translate-x-0"
                       >
-                        {project.category}
-                      </span>
-                    </div>
-                    {/* Hover arrow */}
-                    <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <div className="w-9 h-9 border border-[#C6A86B] flex items-center justify-center">
-                        <ArrowUpRight size={13} className="text-[#C6A86B]" />
+                        <span
+                          className="text-[#C6A86B]/70 text-[9px] tracking-[0.2em]"
+                          style={{ fontFamily: "var(--font-inter, sans-serif)" }}
+                        >
+                          {project.year}
+                        </span>
+                      </div>
+
+                      {/* Arrow icon */}
+                      <div
+                        className="absolute top-1/2 right-6 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-all duration-400 scale-90 group-hover:scale-100"
+                      >
+                        <div className="w-10 h-10 border border-[#C6A86B] flex items-center justify-center">
+                          <ArrowUpRight size={14} className="text-[#C6A86B]" />
+                        </div>
+                      </div>
+
+                      {/* Bottom info */}
+                      <div className="absolute bottom-0 left-0 right-0 p-6">
+                        <span
+                          className="text-[#C6A86B] text-[9px] tracking-[0.3em] uppercase block mb-1.5"
+                          style={{ fontFamily: "var(--font-inter, sans-serif)" }}
+                        >
+                          {project.location}
+                        </span>
+                        <h3
+                          className="text-[#F0EDE8] text-xl font-normal leading-tight"
+                          style={{ fontFamily: "var(--font-playfair, Georgia, serif)" }}
+                        >
+                          {project.title}
+                        </h3>
+                        {/* Area — reveals on hover */}
+                        <p
+                          className="text-[#F0EDE8]/30 text-[9px] tracking-[0.15em] uppercase mt-1.5 max-h-0 overflow-hidden group-hover:max-h-8 transition-all duration-400"
+                          style={{ fontFamily: "var(--font-inter, sans-serif)" }}
+                        >
+                          {project.area}
+                        </p>
                       </div>
                     </div>
-                    {/* Bottom info */}
-                    <div className="absolute bottom-6 left-6 right-6">
-                      <span
-                        className="text-[#C6A86B] text-[9px] tracking-[0.3em] uppercase block mb-1"
-                        style={{ fontFamily: "var(--font-inter, sans-serif)" }}
-                      >
-                        {project.location}
-                      </span>
-                      <h3
-                        className="text-[#F5F3EF] text-xl font-normal"
-                        style={{ fontFamily: "var(--font-playfair, Georgia, serif)" }}
-                      >
-                        {project.title}
-                      </h3>
+
+                    {/* Below image */}
+                    <div className="py-4 px-1 border-b border-[#1A1A18] group-hover:border-[#C6A86B]/30 transition-colors duration-500">
+                      <div className="flex items-center justify-between">
+                        <div>
+                          <h3 className="text-[#F0EDE8] text-base font-normal" style={{ fontFamily: "var(--font-playfair, Georgia, serif)" }}>
+                            {project.title}
+                          </h3>
+                          <p className="text-[#3A3733] text-xs mt-0.5" style={{ fontFamily: "var(--font-inter, sans-serif)" }}>
+                            {project.category} · {project.location}
+                          </p>
+                        </div>
+                        <ArrowUpRight
+                          size={14}
+                          className="text-[#3A3733] group-hover:text-[#C6A86B] transition-colors duration-300 shrink-0"
+                        />
+                      </div>
                     </div>
-                  </div>
-                  {/* Below image */}
-                  <div className="py-4 border-b border-[#DDD9D2] group-hover:border-[#C6A86B] transition-colors duration-500">
-                    <h3 className="text-[#0D0D0D] text-lg font-normal" style={{ fontFamily: "var(--font-playfair, Georgia, serif)" }}>
-                      {project.title}
-                    </h3>
-                    <p className="text-[#8A8580] text-xs mt-0.5" style={{ fontFamily: "var(--font-inter, sans-serif)" }}>
-                      {project.category} · {project.location}
-                    </p>
-                  </div>
                   </Link>
                 </motion.div>
               ))}
@@ -172,9 +234,14 @@ export default function ProjectsPage() {
           </motion.div>
 
           {filtered.length === 0 && (
-            <p className="text-center text-[#8A8580] text-sm py-20" style={{ fontFamily: "var(--font-inter, sans-serif)" }}>
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              className="text-center text-[#3A3733] text-sm py-20"
+              style={{ fontFamily: "var(--font-inter, sans-serif)" }}
+            >
               No projects in this category.
-            </p>
+            </motion.p>
           )}
         </div>
       </section>

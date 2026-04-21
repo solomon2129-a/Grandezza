@@ -59,26 +59,24 @@ export default async function ProjectDetailPage({ params }: Props) {
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(to bottom, rgba(13,13,13,0.15) 0%, rgba(13,13,13,0.75) 100%)",
+              "linear-gradient(to bottom, rgba(6,6,6,0.15) 0%, rgba(6,6,6,0.82) 100%)",
           }}
         />
 
-        {/* Back link */}
         <Link
           href="/projects"
-          className="absolute top-28 left-6 lg:left-16 z-20 inline-flex items-center gap-2 text-white/60 hover:text-white text-[10px] tracking-[0.2em] uppercase transition-colors duration-300"
+          className="absolute top-28 left-6 lg:left-16 z-20 inline-flex items-center gap-2 text-white/55 hover:text-white text-[10px] tracking-[0.2em] uppercase transition-colors duration-300"
           style={{ fontFamily: "var(--font-inter, sans-serif)" }}
         >
           <ArrowLeft size={12} /> All Projects
         </Link>
 
-        {/* Category badge */}
         <div className="absolute top-28 right-6 lg:right-16 z-20">
           <span
             className="px-4 py-1.5 text-[8px] tracking-[0.3em] uppercase border border-[#C6A86B]/50 text-[#C6A86B]"
             style={{
               fontFamily: "var(--font-inter, sans-serif)",
-              background: "rgba(13,13,13,0.4)",
+              background: "rgba(6,6,6,0.4)",
               backdropFilter: "blur(4px)",
             }}
           >
@@ -94,7 +92,7 @@ export default async function ProjectDetailPage({ params }: Props) {
             {project.location}
           </p>
           <h1
-            className="text-5xl md:text-7xl lg:text-[5rem] font-normal text-[#F5F3EF] leading-[1.0] tracking-[-0.02em] max-w-3xl"
+            className="text-5xl md:text-7xl lg:text-[5rem] font-normal text-[#F0EDE8] leading-[1.0] tracking-[-0.02em] max-w-3xl"
             style={{ fontFamily: "var(--font-playfair, Georgia, serif)" }}
           >
             {project.title}
@@ -103,18 +101,18 @@ export default async function ProjectDetailPage({ params }: Props) {
       </section>
 
       {/* PROJECT META + DESCRIPTION */}
-      <section style={{ background: "#F5F3EF" }} className="px-5 sm:px-8 lg:px-16 py-16 sm:py-24 lg:py-28">
+      <section style={{ background: "#080808" }} className="px-5 sm:px-8 lg:px-16 py-16 sm:py-24 lg:py-28">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-20">
             {/* Meta sidebar */}
             <AnimateIn variants={fadeLeft}>
-              <div className="space-y-0 border-t border-[#DDD9D2]">
+              <div className="space-y-0 border-t border-[#1E1E1C]">
                 {meta.map(({ icon: Icon, label, value }) => (
                   <div
                     key={label}
-                    className="flex items-center gap-5 py-5 border-b border-[#DDD9D2]"
+                    className="flex items-center gap-5 py-5 border-b border-[#1E1E1C]"
                   >
-                    <div className="w-8 h-8 border border-[#DDD9D2] flex items-center justify-center shrink-0">
+                    <div className="w-8 h-8 border border-[#1E1E1C] flex items-center justify-center shrink-0">
                       <Icon size={11} className="text-[#C6A86B]" />
                     </div>
                     <div>
@@ -125,7 +123,7 @@ export default async function ProjectDetailPage({ params }: Props) {
                         {label}
                       </p>
                       <p
-                        className="text-[#0D0D0D] text-sm"
+                        className="text-[#F0EDE8] text-sm"
                         style={{ fontFamily: "var(--font-inter, sans-serif)" }}
                       >
                         {value}
@@ -135,7 +133,7 @@ export default async function ProjectDetailPage({ params }: Props) {
                 ))}
 
                 {/* Services */}
-                <div className="py-5 border-b border-[#DDD9D2]">
+                <div className="py-5 border-b border-[#1E1E1C]">
                   <p
                     className="text-[8px] tracking-[0.25em] uppercase text-[#C6A86B] mb-3"
                     style={{ fontFamily: "var(--font-inter, sans-serif)" }}
@@ -146,7 +144,7 @@ export default async function ProjectDetailPage({ params }: Props) {
                     {project.services.map((s) => (
                       <span
                         key={s}
-                        className="px-3 py-1 text-[9px] tracking-[0.15em] uppercase border border-[#DDD9D2] text-[#8A8580]"
+                        className="px-3 py-1 text-[9px] tracking-[0.15em] uppercase border border-[#1E1E1C] text-[#6B6560]"
                         style={{ fontFamily: "var(--font-inter, sans-serif)" }}
                       >
                         {s}
@@ -158,7 +156,7 @@ export default async function ProjectDetailPage({ params }: Props) {
                 <div className="pt-8">
                   <Link
                     href="/contact"
-                    className="inline-flex items-center gap-3 px-8 py-4 text-[10px] tracking-[0.25em] uppercase font-medium transition-colors duration-300 bg-[#0D0D0D] text-[#F5F3EF] hover:bg-[#C6A86B]"
+                    className="inline-flex items-center gap-3 px-8 py-4 text-[10px] tracking-[0.25em] uppercase font-medium transition-all duration-300 bg-[#C6A86B] text-[#080808] hover:bg-[#F0EDE8]"
                     style={{ fontFamily: "var(--font-inter, sans-serif)" }}
                   >
                     Start a Project
@@ -176,13 +174,13 @@ export default async function ProjectDetailPage({ params }: Props) {
                 Project Overview
               </p>
               <p
-                className="text-[#0D0D0D] text-xl sm:text-2xl font-normal leading-[1.6] mb-8"
+                className="text-[#F0EDE8] text-xl sm:text-2xl font-normal leading-[1.6] mb-8"
                 style={{ fontFamily: "var(--font-playfair, Georgia, serif)" }}
               >
                 {project.description}
               </p>
               <p
-                className="text-[#8A8580] text-sm leading-8"
+                className="text-[#6B6560] text-sm leading-8"
                 style={{ fontFamily: "var(--font-inter, sans-serif)" }}
               >
                 {project.descriptionLong}
@@ -193,7 +191,7 @@ export default async function ProjectDetailPage({ params }: Props) {
       </section>
 
       {/* GALLERY */}
-      <section style={{ background: "#0D0D0D" }} className="grain px-5 sm:px-8 lg:px-16 py-16 sm:py-24">
+      <section style={{ background: "#0A0A0A" }} className="grain px-5 sm:px-8 lg:px-16 py-16 sm:py-24">
         <div className="max-w-7xl mx-auto">
           <AnimateIn variants={fadeUp}>
             <p
@@ -227,7 +225,7 @@ export default async function ProjectDetailPage({ params }: Props) {
 
       {/* RELATED PROJECTS */}
       {related.length > 0 && (
-        <section style={{ background: "#F5F3EF" }} className="px-5 sm:px-8 lg:px-16 py-16 sm:py-24">
+        <section style={{ background: "#080808" }} className="px-5 sm:px-8 lg:px-16 py-16 sm:py-24">
           <div className="max-w-7xl mx-auto">
             <AnimateIn variants={fadeUp}>
               <div className="flex items-center justify-between mb-14">
@@ -239,7 +237,7 @@ export default async function ProjectDetailPage({ params }: Props) {
                     More {project.category}
                   </p>
                   <h2
-                    className="text-3xl md:text-4xl font-normal text-[#0D0D0D] leading-[1.1] tracking-[-0.02em]"
+                    className="text-3xl md:text-4xl font-normal text-[#F0EDE8] leading-[1.1] tracking-[-0.02em]"
                     style={{ fontFamily: "var(--font-playfair, Georgia, serif)" }}
                   >
                     Related Projects
@@ -247,7 +245,7 @@ export default async function ProjectDetailPage({ params }: Props) {
                 </div>
                 <Link
                   href="/projects"
-                  className="hidden sm:inline-flex items-center gap-3 text-[#0D0D0D] text-[10px] tracking-[0.25em] uppercase font-medium border-b border-[#C6A86B] pb-1 hover:text-[#C6A86B] transition-colors duration-300"
+                  className="hidden sm:inline-flex items-center gap-3 text-[#F0EDE8] text-[10px] tracking-[0.25em] uppercase font-medium border-b border-[#C6A86B] pb-1 hover:text-[#C6A86B] transition-colors duration-300"
                   style={{ fontFamily: "var(--font-inter, sans-serif)" }}
                 >
                   View All <ArrowLeft size={12} className="rotate-180" />
@@ -269,7 +267,7 @@ export default async function ProjectDetailPage({ params }: Props) {
                       />
                       <div
                         className="absolute inset-0"
-                        style={{ background: "linear-gradient(to top, rgba(13,13,13,0.65) 0%, transparent 55%)" }}
+                        style={{ background: "linear-gradient(to top, rgba(6,6,6,0.7) 0%, transparent 55%)" }}
                       />
                       <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                         <div className="w-9 h-9 border border-[#C6A86B] flex items-center justify-center">
@@ -284,22 +282,22 @@ export default async function ProjectDetailPage({ params }: Props) {
                           {p.location}
                         </span>
                         <h3
-                          className="text-[#F5F3EF] text-lg font-normal"
+                          className="text-[#F0EDE8] text-lg font-normal"
                           style={{ fontFamily: "var(--font-playfair, Georgia, serif)" }}
                         >
                           {p.title}
                         </h3>
                       </div>
                     </div>
-                    <div className="py-3 border-b border-[#DDD9D2] group-hover:border-[#C6A86B] transition-colors duration-500">
+                    <div className="py-3 border-b border-[#1E1E1C] group-hover:border-[#C6A86B] transition-colors duration-500">
                       <h3
-                        className="text-[#0D0D0D] text-base font-normal"
+                        className="text-[#F0EDE8] text-base font-normal"
                         style={{ fontFamily: "var(--font-playfair, Georgia, serif)" }}
                       >
                         {p.title}
                       </h3>
                       <p
-                        className="text-[#8A8580] text-xs mt-0.5"
+                        className="text-[#4A4A46] text-xs mt-0.5"
                         style={{ fontFamily: "var(--font-inter, sans-serif)" }}
                       >
                         {p.category} · {p.location}
