@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import Image from "next/image";
+import { Phone, MapPin, Mail } from "lucide-react";
 import AnimateIn from "@/components/AnimateIn";
-import CTASection from "@/components/CTASection";
-import { fadeUp, fadeLeft } from "@/lib/animations";
+import { fadeUp } from "@/lib/animations";
 import { COMPANY } from "@/lib/constants";
 
 export const metadata: Metadata = {
@@ -12,202 +11,189 @@ export const metadata: Metadata = {
     "Get in touch with Grandezza — luxury interior design and construction. Based in Mumbai.",
 };
 
-const ROWS = [
-  {
-    index: "01",
-    label: "Phone",
-    value: COMPANY.phone,
-    href: `tel:${COMPANY.phone}`,
-    note: "Mon – Sat, 9 AM – 7 PM IST",
-  },
-  {
-    index: "02",
-    label: "Email",
-    value: COMPANY.email,
-    href: `mailto:${COMPANY.email}`,
-    note: "Response within 24 hours",
-  },
-  {
-    index: "03",
-    label: "Office",
-    value: COMPANY.address,
-    href: "#",
-    note: "By appointment only",
-  },
-];
-
 export default function ContactPage() {
   return (
-    <>
-      {/* ─── MINIMAL DARK HEADER ───────────────────────────────────── */}
-      <section
-        className="grain flex flex-col justify-end px-6 sm:px-10 lg:px-20 pb-16 sm:pb-20"
-        style={{ background: "#0D0D0D", paddingTop: "calc(5rem + 80px)" }}
-      >
-        <AnimateIn variants={fadeLeft}>
-          <p
-            className="text-[#C6A86B] text-[9px] tracking-[0.5em] uppercase mb-6"
-            style={{ fontFamily: "var(--font-inter, sans-serif)" }}
+    <div style={{ background: "#0D0D0D" }}>
+
+      {/* ── HERO ──────────────────────────────────────────────── */}
+      <section className="relative flex items-center justify-center overflow-hidden" style={{ height: "55vh", minHeight: "380px" }}>
+        <Image
+          src="/assets/dining-luxury.png"
+          alt="Contact Grandezza"
+          fill priority
+          className="object-cover"
+          sizes="100vw"
+        />
+        <div className="absolute inset-0" style={{ background: "rgba(13,13,13,0.65)" }} />
+
+        <div className="relative z-10 px-4 text-center">
+          <div
+            className="inline-block px-12 sm:px-20 py-5 sm:py-7 border border-[#F5F3EF]/70"
           >
-            Let&apos;s Connect
-          </p>
-          <h1
-            className="font-normal text-[#F5F3EF] leading-[1.0] tracking-[-0.03em]"
+            <h1
+              className="font-normal text-[#F5F3EF] tracking-[0.22em] uppercase"
+              style={{
+                fontFamily: "var(--font-inter, sans-serif)",
+                fontSize: "clamp(1.2rem, 3.5vw, 2.2rem)",
+                letterSpacing: "0.22em",
+              }}
+            >
+              Contact Us
+            </h1>
+          </div>
+        </div>
+      </section>
+
+      {/* ── GET IN TOUCH HEADING ──────────────────────────────── */}
+      <AnimateIn variants={fadeUp}>
+        <div className="text-center pt-16 pb-12 px-6">
+          <p
+            className="font-normal text-[#C6A86B] italic"
             style={{
               fontFamily: "var(--font-playfair, Georgia, serif)",
-              fontSize: "clamp(3.5rem, 8vw, 7rem)",
+              fontSize: "clamp(1.4rem, 3vw, 2rem)",
             }}
           >
-            Contact <span className="italic">Us</span>
-          </h1>
-        </AnimateIn>
-      </section>
+            Get in touch with us!
+          </p>
+        </div>
+      </AnimateIn>
 
-      {/* ─── EDITORIAL CONTACT ROWS ────────────────────────────────── */}
-      <section style={{ background: "#F5F3EF" }}>
-        <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-20">
-          {ROWS.map((row, i) => (
-            <AnimateIn key={row.index} variants={fadeUp} delay={i * 0.08}>
-              <a
-                href={row.href}
-                className="group flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-0 py-10 sm:py-12 border-b border-[#DDD9D2] hover:border-[#C6A86B] transition-colors duration-500"
+      {/* ── THREE COLUMN CONTACT INFO ─────────────────────────── */}
+      <AnimateIn variants={fadeUp} delay={0.1}>
+        <div className="max-w-4xl mx-auto px-6 pb-16">
+          <div className="grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-[#F5F3EF]/10">
+
+            {/* Phone */}
+            <div className="flex flex-col items-center text-center px-8 py-10 group">
+              <div
+                className="w-12 h-12 border border-[#C6A86B]/40 flex items-center justify-center mb-5 group-hover:border-[#C6A86B] transition-colors duration-400"
               >
-                {/* Index */}
-                <span
-                  className="text-[#C6A86B]/50 text-[10px] tracking-[0.3em] sm:w-16 shrink-0"
-                  style={{ fontFamily: "var(--font-inter, sans-serif)" }}
-                >
-                  {row.index}
-                </span>
-
-                {/* Label */}
-                <span
-                  className="text-[#8A8580] text-[9px] tracking-[0.35em] uppercase sm:w-32 shrink-0"
-                  style={{ fontFamily: "var(--font-inter, sans-serif)" }}
-                >
-                  {row.label}
-                </span>
-
-                {/* Value — the star */}
-                <span
-                  className="flex-1 font-normal text-[#0D0D0D] group-hover:text-[#C6A86B] transition-colors duration-400 leading-snug"
-                  style={{
-                    fontFamily: "var(--font-playfair, Georgia, serif)",
-                    fontSize: "clamp(1.15rem, 2.8vw, 2rem)",
-                  }}
-                >
-                  {row.value}
-                </span>
-
-                {/* Note + arrow */}
-                <div className="flex items-center gap-4 sm:w-52 justify-end shrink-0">
-                  <span
-                    className="text-[#BDBAB5] text-[9px] tracking-[0.2em] text-right hidden md:block"
-                    style={{ fontFamily: "var(--font-inter, sans-serif)" }}
-                  >
-                    {row.note}
-                  </span>
-                  <ArrowUpRight
-                    size={16}
-                    className="text-[#C6A86B] opacity-0 group-hover:opacity-100 transition-opacity duration-300 shrink-0"
-                  />
-                </div>
+                <Phone size={18} className="text-[#C6A86B]" />
+              </div>
+              <p
+                className="text-[#C6A86B] text-[9px] tracking-[0.4em] uppercase mb-4"
+                style={{ fontFamily: "var(--font-inter, sans-serif)" }}
+              >
+                Phone
+              </p>
+              <a
+                href={`tel:${COMPANY.phone}`}
+                className="text-[#F5F3EF]/80 text-sm leading-7 hover:text-[#C6A86B] transition-colors duration-300"
+                style={{ fontFamily: "var(--font-inter, sans-serif)" }}
+              >
+                {COMPANY.phone}
               </a>
-            </AnimateIn>
-          ))}
-        </div>
-      </section>
-
-      {/* ─── OFFICE HOURS + SOCIAL ─────────────────────────────────── */}
-      <section style={{ background: "#F5F3EF" }}>
-        <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-20 py-16 sm:py-20">
-          <AnimateIn variants={fadeUp}>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-10 sm:gap-0 sm:divide-x sm:divide-[#DDD9D2]">
-              {/* Hours */}
-              <div className="sm:pr-12">
-                <p
-                  className="text-[9px] tracking-[0.4em] uppercase text-[#C6A86B] mb-4"
-                  style={{ fontFamily: "var(--font-inter, sans-serif)" }}
-                >
-                  Office Hours
-                </p>
-                <p
-                  className="text-[#0D0D0D] text-sm leading-7"
-                  style={{ fontFamily: "var(--font-inter, sans-serif)" }}
-                >
-                  Monday – Saturday
-                  <br />
-                  9:00 AM – 7:00 PM IST
-                </p>
-              </div>
-
-              {/* Follow */}
-              <div className="sm:px-12">
-                <p
-                  className="text-[9px] tracking-[0.4em] uppercase text-[#C6A86B] mb-4"
-                  style={{ fontFamily: "var(--font-inter, sans-serif)" }}
-                >
-                  Follow
-                </p>
-                <div className="flex flex-col gap-2">
-                  <a
-                    href={COMPANY.instagram}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-[#0D0D0D] text-sm hover:text-[#C6A86B] transition-colors duration-300 flex items-center gap-2"
-                    style={{ fontFamily: "var(--font-inter, sans-serif)" }}
-                  >
-                    Instagram <ArrowUpRight size={11} className="opacity-50" />
-                  </a>
-                  <a
-                    href={COMPANY.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-[#0D0D0D] text-sm hover:text-[#C6A86B] transition-colors duration-300 flex items-center gap-2"
-                    style={{ fontFamily: "var(--font-inter, sans-serif)" }}
-                  >
-                    LinkedIn <ArrowUpRight size={11} className="opacity-50" />
-                  </a>
-                </div>
-              </div>
-
-              {/* Brand */}
-              <div className="sm:pl-12 flex flex-col justify-between gap-6">
-                <p
-                  className="text-[9px] tracking-[0.4em] uppercase text-[#C6A86B] mb-4"
-                  style={{ fontFamily: "var(--font-inter, sans-serif)" }}
-                >
-                  Our Work
-                </p>
-                <div className="flex flex-col gap-3">
-                  <Link
-                    href="/projects"
-                    className="text-[#0D0D0D] text-sm hover:text-[#C6A86B] transition-colors duration-300 flex items-center gap-2"
-                    style={{ fontFamily: "var(--font-inter, sans-serif)" }}
-                  >
-                    View Projects <ArrowUpRight size={11} className="opacity-50" />
-                  </Link>
-                  <Link
-                    href="/services"
-                    className="text-[#0D0D0D] text-sm hover:text-[#C6A86B] transition-colors duration-300 flex items-center gap-2"
-                    style={{ fontFamily: "var(--font-inter, sans-serif)" }}
-                  >
-                    Our Services <ArrowUpRight size={11} className="opacity-50" />
-                  </Link>
-                </div>
-                <p
-                  className="text-[#BDBAB5] text-[8px] tracking-[0.35em] uppercase mt-auto pt-4 border-t border-[#DDD9D2]"
-                  style={{ fontFamily: "var(--font-inter, sans-serif)" }}
-                >
-                  A Sharieff Creations Co.
-                </p>
-              </div>
+              <p
+                className="text-[#F5F3EF]/30 text-[9px] tracking-[0.15em] mt-2"
+                style={{ fontFamily: "var(--font-inter, sans-serif)" }}
+              >
+                Mon – Sat · 9 AM – 7 PM IST
+              </p>
             </div>
-          </AnimateIn>
-        </div>
-      </section>
 
-      <CTASection />
-    </>
+            {/* Address */}
+            <div className="flex flex-col items-center text-center px-8 py-10 group">
+              <div
+                className="w-12 h-12 border border-[#C6A86B]/40 flex items-center justify-center mb-5 group-hover:border-[#C6A86B] transition-colors duration-400"
+              >
+                <MapPin size={18} className="text-[#C6A86B]" />
+              </div>
+              <p
+                className="text-[#C6A86B] text-[9px] tracking-[0.4em] uppercase mb-4"
+                style={{ fontFamily: "var(--font-inter, sans-serif)" }}
+              >
+                Address
+              </p>
+              <p
+                className="text-[#F5F3EF]/80 text-sm leading-7"
+                style={{ fontFamily: "var(--font-inter, sans-serif)" }}
+              >
+                {COMPANY.address}
+              </p>
+              <p
+                className="text-[#F5F3EF]/30 text-[9px] tracking-[0.15em] mt-2"
+                style={{ fontFamily: "var(--font-inter, sans-serif)" }}
+              >
+                By appointment only
+              </p>
+            </div>
+
+            {/* Email */}
+            <div className="flex flex-col items-center text-center px-8 py-10 group">
+              <div
+                className="w-12 h-12 border border-[#C6A86B]/40 flex items-center justify-center mb-5 group-hover:border-[#C6A86B] transition-colors duration-400"
+              >
+                <Mail size={18} className="text-[#C6A86B]" />
+              </div>
+              <p
+                className="text-[#C6A86B] text-[9px] tracking-[0.4em] uppercase mb-4"
+                style={{ fontFamily: "var(--font-inter, sans-serif)" }}
+              >
+                Email
+              </p>
+              <a
+                href={`mailto:${COMPANY.email}`}
+                className="text-[#F5F3EF]/80 text-sm leading-7 hover:text-[#C6A86B] transition-colors duration-300 break-all"
+                style={{ fontFamily: "var(--font-inter, sans-serif)" }}
+              >
+                {COMPANY.email}
+              </a>
+              <p
+                className="text-[#F5F3EF]/30 text-[9px] tracking-[0.15em] mt-2"
+                style={{ fontFamily: "var(--font-inter, sans-serif)" }}
+              >
+                Response within 24 hours
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </AnimateIn>
+
+      {/* ── DIVIDER ───────────────────────────────────────────── */}
+      <div className="max-w-3xl mx-auto px-6">
+        <div className="h-px bg-[#F5F3EF]/8" />
+      </div>
+
+      {/* ── CONNECT WITH US ───────────────────────────────────── */}
+      <AnimateIn variants={fadeUp} delay={0.15}>
+        <div className="text-center py-14 px-6">
+          <p
+            className="font-normal text-[#C6A86B] italic mb-8"
+            style={{
+              fontFamily: "var(--font-playfair, Georgia, serif)",
+              fontSize: "clamp(1.2rem, 2.5vw, 1.6rem)",
+            }}
+          >
+            Connect with us!
+          </p>
+          <div className="flex items-center justify-center gap-5 flex-wrap">
+            {[
+              { label: "Instagram", href: COMPANY.instagram },
+              { label: "LinkedIn", href: COMPANY.linkedin },
+            ].map(({ label, href }) => (
+              <a
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-11 h-11 border border-[#F5F3EF]/15 hover:border-[#C6A86B] flex items-center justify-center text-[#F5F3EF]/50 hover:text-[#C6A86B] transition-colors duration-300 text-[8px] tracking-[0.2em] uppercase"
+                style={{ fontFamily: "var(--font-inter, sans-serif)" }}
+              >
+                {label.slice(0, 2)}
+              </a>
+            ))}
+          </div>
+          <p
+            className="text-[#F5F3EF]/20 text-[8px] tracking-[0.35em] uppercase mt-10"
+            style={{ fontFamily: "var(--font-inter, sans-serif)" }}
+          >
+            A Sharieff Creations Co.
+          </p>
+        </div>
+      </AnimateIn>
+
+    </div>
   );
 }
