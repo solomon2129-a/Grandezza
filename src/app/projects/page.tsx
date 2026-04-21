@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import CTASection from "@/components/CTASection";
 import AnimateIn from "@/components/AnimateIn";
@@ -9,7 +10,7 @@ import { scaleIn, staggerContainer } from "@/lib/animations";
 import { PROJECTS } from "@/lib/constants";
 import { ArrowUpRight } from "lucide-react";
 
-const CATEGORIES = ["All", "Residential", "Commercial", "Villas", "Offices"];
+const CATEGORIES = ["All", "Complete Home", "Bedroom", "Living & Dining"];
 
 export default function ProjectsPage() {
   const [active, setActive] = useState("All");
@@ -22,7 +23,7 @@ export default function ProjectsPage() {
         <div
           className="absolute inset-0"
           style={{
-            backgroundImage: "url('https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=1800&q=85')",
+            backgroundImage: "url('/assets/living-room-2.png')",
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
@@ -105,8 +106,8 @@ export default function ProjectsPage() {
                   initial="hidden"
                   animate="visible"
                   exit="hidden"
-                  className="group cursor-pointer"
                 >
+                  <Link href={`/projects/${project.slug}`} className="group block">
                   <div className="relative overflow-hidden h-[240px] sm:h-[320px] lg:h-[380px]">
                     <Image
                       src={project.image}
@@ -164,6 +165,7 @@ export default function ProjectsPage() {
                       {project.category} · {project.location}
                     </p>
                   </div>
+                  </Link>
                 </motion.div>
               ))}
             </AnimatePresence>

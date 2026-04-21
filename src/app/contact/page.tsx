@@ -28,7 +28,7 @@ export default function ContactPage() {
       {/* PAGE HERO */}
       <section className="relative flex items-end justify-start overflow-hidden" style={{ height: "65vh", minHeight: "480px" }}>
         <Image
-          src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1800&q=85"
+          src="/assets/master-bedroom-1.png"
           alt="Contact"
           fill priority className="object-cover"
           sizes="100vw"

@@ -1,13 +1,12 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
 
 interface TestimonialCardProps {
   name: string;
   role: string;
   quote: string;
-  image: string;
+  initials: string;
   index?: number;
 }
 
@@ -15,7 +14,7 @@ export default function TestimonialCard({
   name,
   role,
   quote,
-  image,
+  initials,
   index = 0,
 }: TestimonialCardProps) {
   return (
@@ -28,9 +27,7 @@ export default function TestimonialCard({
       style={{ background: "#F5F3EF" }}
     >
       {/* Top gold accent */}
-      <div
-        className="h-px w-12 bg-[#C6A86B] mb-8 group-hover:w-full transition-all duration-700"
-      />
+      <div className="h-px w-12 bg-[#C6A86B] mb-8 group-hover:w-full transition-all duration-700" />
 
       {/* Large decorative quote mark */}
       <div className="relative mb-4">
@@ -62,14 +59,16 @@ export default function TestimonialCard({
 
       {/* Author */}
       <div className="flex items-center gap-4 pt-6 border-t border-[#DDD9D2]">
-        <div className="relative w-12 h-12 rounded-full overflow-hidden shrink-0 ring-1 ring-[#C6A86B]/30 group-hover:ring-[#C6A86B] transition-all duration-300">
-          <Image
-            src={image}
-            alt={name}
-            fill
-            className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
-            sizes="48px"
-          />
+        <div
+          className="w-12 h-12 shrink-0 flex items-center justify-center ring-1 ring-[#C6A86B]/30 group-hover:ring-[#C6A86B] transition-all duration-300"
+          style={{ background: "#0D0D0D" }}
+        >
+          <span
+            className="text-[#C6A86B] text-sm font-normal"
+            style={{ fontFamily: "var(--font-playfair, Georgia, serif)" }}
+          >
+            {initials}
+          </span>
         </div>
         <div>
           <p

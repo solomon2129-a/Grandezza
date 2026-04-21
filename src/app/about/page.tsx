@@ -22,7 +22,7 @@ export default function AboutPage() {
       {/* PAGE HERO */}
       <section className="relative flex items-end justify-start overflow-hidden" style={{ height: "65vh", minHeight: "480px" }}>
         <Image
-          src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=1800&q=85"
+          src="/assets/living-room-2.png"
           alt="About Grandezza"
           fill priority
           className="object-cover"
@@ -100,8 +100,8 @@ export default function AboutPage() {
             <div className="relative">
               <div className="relative overflow-hidden img-reveal h-[300px] sm:h-[420px] lg:h-[580px]">
                 <Image
-                  src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=900&q=80"
-                  alt="Grandezza team"
+                  src="/assets/dining-3.png"
+                  alt="Grandezza interiors"
                   fill className="object-cover"
                   sizes="(max-width: 1024px) 100vw, 50vw"
                 />
@@ -126,7 +126,7 @@ export default function AboutPage() {
             <div className="relative">
               <div className="relative overflow-hidden img-reveal h-[260px] sm:h-[380px] lg:h-[520px]">
                 <Image
-                  src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=900&q=80"
+                  src="/assets/dining-2.png"
                   alt="Sharieff Creations"
                   fill className="object-cover"
                   sizes="(max-width: 1024px) 100vw, 50vw"

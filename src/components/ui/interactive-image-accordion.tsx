@@ -15,31 +15,31 @@ const accordionItems: AccordionItem[] = [
     id: 1,
     title: "Interior Design",
     subtitle: "Concept to reality",
-    imageUrl: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=900&q=80",
+    imageUrl: "/assets/living-room-2.png",
   },
   {
     id: 2,
     title: "Turnkey Projects",
     subtitle: "Full delivery",
-    imageUrl: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=900&q=80",
+    imageUrl: "/assets/dining-luxury.png",
   },
   {
     id: 3,
     title: "Renovation",
     subtitle: "Space transformation",
-    imageUrl: "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=900&q=80",
+    imageUrl: "/assets/bedroom-grey-1.png",
   },
   {
     id: 4,
     title: "Custom Furniture",
     subtitle: "In-house crafted",
-    imageUrl: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=900&q=80",
+    imageUrl: "/assets/wardrobe-wood.png",
   },
   {
     id: 5,
     title: "Construction",
     subtitle: "Built to last",
-    imageUrl: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=900&q=80",
+    imageUrl: "/assets/kitchen-1.png",
   },
 ];
 

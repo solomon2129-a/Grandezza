@@ -12,40 +12,35 @@ const SECTIONS = [
     leftLabel: "Interior Design",
     title: "Spaces That Inspire",
     rightLabel: "Concept · Reality",
-    background:
-      "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=1800&q=85",
+    background: "/assets/living-room-2.png",
   },
   {
     id: "turnkey",
     leftLabel: "Turnkey Projects",
     title: "One Team. Full Delivery.",
     rightLabel: "Design · Build",
-    background:
-      "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=1800&q=85",
+    background: "/assets/dining-luxury.png",
   },
   {
     id: "renovation",
     leftLabel: "Renovation",
     title: "Transformed",
     rightLabel: "Precision · Craftsmanship",
-    background:
-      "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=1800&q=85",
+    background: "/assets/bedroom-grey-1.png",
   },
   {
     id: "furniture",
     leftLabel: "Custom Furniture",
     title: "Crafted to Perfection",
     rightLabel: "In-House · Bespoke",
-    background:
-      "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=1800&q=85",
+    background: "/assets/wardrobe-wood.png",
   },
   {
     id: "construction",
     leftLabel: "Construction",
     title: "Built on Legacy",
     rightLabel: "30 Years · 500+ Team",
-    background:
-      "https://images.unsplash.com/photo-1600210492493-0946911123ea?w=1800&q=85",
+    background: "/assets/kitchen-1.png",
   },
 ];
 

@@ -29,7 +29,7 @@ const DETAILED_SERVICES = [
       "Lighting design",
       "Art & accessory curation",
     ],
-    image: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=900&q=80",
+    image: "/assets/living-room-2.png",
   },
   {
     title: "Turnkey Projects",
@@ -44,14 +44,14 @@ const DETAILED_SERVICES = [
       "Quality control at every stage",
       "On-time delivery guarantee",
     ],
-    image: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=900&q=80",
+    image: "/assets/dining-luxury.png",
     reversed: true,
   },
   {
     title: "Renovation",
     eyebrow: "03",
     description:
-      "We transform existing spaces into extraordinary ones. Whether a single room or a full building overhaul, our renovation services are executed with surgical precision and minimal disruption.",
+      "We transform existing spaces into extraordinary ones. Whether a single room or a full home overhaul, our renovation services are executed with surgical precision and minimal disruption.",
     features: [
       "Site assessment & feasibility",
       "Structural modifications",
@@ -60,7 +60,7 @@ const DETAILED_SERVICES = [
       "Custom joinery & cabinetry",
       "Post-renovation inspection",
     ],
-    image: "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=900&q=80",
+    image: "/assets/bedroom-grey-1.png",
   },
   {
     title: "Custom Furniture",
@@ -75,14 +75,14 @@ const DETAILED_SERVICES = [
       "White-glove delivery & installation",
       "After-sales care",
     ],
-    image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=900&q=80",
+    image: "/assets/pooja-unit.png",
     reversed: true,
   },
   {
     title: "Construction",
     eyebrow: "05",
     description:
-      "Backed by Sharieff Creations' 30-year track record, our construction services cover everything from structural builds to precision fit-outs — operated with full compliance and transparency.",
+      "Backed by Sharieff Creations' 30-year track record, our construction services cover everything from false ceilings and flooring to full fit-outs — operated with full compliance and transparency.",
     features: [
       "Civil & structural works",
       "MEP (mechanical, electrical, plumbing)",
@@ -91,7 +91,7 @@ const DETAILED_SERVICES = [
       "Compliance & safety management",
       "Snagging & handover",
     ],
-    image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=900&q=80",
+    image: "/assets/kitchen-1.png",
   },
 ];
 
@@ -101,7 +101,7 @@ export default function ServicesPage() {
       {/* PAGE HERO */}
       <section className="relative flex items-end justify-start overflow-hidden" style={{ height: "65vh", minHeight: "480px" }}>
         <Image
-          src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=1800&q=85"
+          src="/assets/dining-luxury.png"
           alt="Services"
           fill priority className="object-cover"
           sizes="100vw"

@@ -21,7 +21,7 @@ export default function Hero() {
       {/* Parallax image */}
       <motion.div className="absolute inset-0" style={{ y: imgY }}>
         <Image
-          src="https://images.unsplash.com/photo-1600210492493-0946911123ea?w=1800&q=85"
+          src="/assets/dining-luxury.png"
           alt="Luxury interior"
           fill
           priority
