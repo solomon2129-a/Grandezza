@@ -30,7 +30,7 @@ export default function Navbar() {
         backdropFilter: transparent ? "none" : "blur(12px)",
       }}
     >
-      <div className="max-w-7xl mx-auto px-6 lg:px-16 h-20 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-6 lg:px-16 h-16 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex flex-col leading-none group">
           <span

@@ -44,17 +44,17 @@ export default function HomePage() {
           </span>
         </div>
 
-        <div className="relative max-w-7xl mx-auto px-5 sm:px-8 lg:px-16 py-14 sm:py-20">
+        <div className="relative max-w-7xl mx-auto px-5 sm:px-8 lg:px-16 py-10 sm:py-14">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-0">
             {STATS.map((stat, i) => (
               <AnimateIn key={stat.label} delay={i * 0.12}>
-                <div className="relative text-center px-4 sm:px-6 py-8 sm:py-10 lg:py-12 group">
+                <div className="relative text-center px-4 sm:px-6 py-6 sm:py-8 lg:py-10 group">
                   <div className="absolute top-0 left-1/2 -translate-x-1/2 w-8 h-px bg-[#C6A86B] group-hover:w-full transition-all duration-700" />
                   <p
                     className="font-normal text-[#C6A86B] mb-3 leading-none"
                     style={{
                       fontFamily: "var(--font-playfair, Georgia, serif)",
-                      fontSize: "clamp(3rem, 5vw, 4.5rem)",
+                      fontSize: "clamp(2rem, 3.5vw, 3rem)",
                     }}
                   >
                     {stat.value}
@@ -90,7 +90,7 @@ export default function HomePage() {
           </span>
         </div>
 
-        <div className="relative max-w-4xl mx-auto px-5 sm:px-8 lg:px-16 py-28 sm:py-36 lg:py-48 text-center">
+        <div className="relative max-w-4xl mx-auto px-5 sm:px-8 lg:px-16 py-16 sm:py-24 lg:py-32 text-center">
           <AnimateIn variants={fadeUp}>
             <div className="w-px h-14 bg-[#C6A86B]/40 mx-auto mb-10" />
             <p
@@ -103,7 +103,7 @@ export default function HomePage() {
               className="font-normal italic text-[#F0EDE8] leading-[1.2] tracking-[-0.015em]"
               style={{
                 fontFamily: "var(--font-playfair, Georgia, serif)",
-                fontSize: "clamp(1.7rem, 4vw, 3rem)",
+                fontSize: "clamp(1.25rem, 2.5vw, 2rem)",
               }}
             >
               &ldquo;Luxury is not a matter of price. It is an obligation to flawless execution — in every stitch, every joint, every material choice.&rdquo;
@@ -130,7 +130,7 @@ export default function HomePage() {
               Our Legacy
             </p>
             <h2
-              className="text-4xl md:text-5xl lg:text-[3.5rem] font-normal text-[#F0EDE8] leading-[1.1] tracking-[-0.02em] mb-7"
+              className="text-3xl md:text-4xl lg:text-[2.6rem] font-normal text-[#F0EDE8] leading-[1.1] tracking-[-0.02em] mb-6"
               style={{ fontFamily: "var(--font-playfair, Georgia, serif)" }}
             >
               Grandezza — The Modern Face of a{" "}
@@ -272,7 +272,7 @@ export default function HomePage() {
               Why Grandezza
             </p>
             <h2
-              className="text-4xl md:text-5xl font-normal text-[#F0EDE8] leading-[1.1] tracking-[-0.02em] mb-12"
+              className="text-3xl md:text-4xl font-normal text-[#F0EDE8] leading-[1.1] tracking-[-0.02em] mb-10"
               style={{ fontFamily: "var(--font-playfair, Georgia, serif)" }}
             >
               Built for those who demand the finest
@@ -314,17 +314,17 @@ export default function HomePage() {
 
       {/* ─── SERVICES ─── */}
       <section className="relative grain overflow-hidden" style={{ background: "#0A0A0A" }}>
-        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-16 py-16 sm:py-24 lg:py-32">
-          <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-14 lg:mb-20 gap-6">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-16 py-12 sm:py-18 lg:py-24">
+          <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-10 lg:mb-14 gap-6">
             <AnimateIn variants={fadeLeft}>
               <p
-                className="text-[9px] tracking-[0.4em] uppercase text-[#C6A86B] mb-5"
+                className="text-[9px] tracking-[0.4em] uppercase text-[#C6A86B] mb-4"
                 style={{ fontFamily: "var(--font-inter, sans-serif)" }}
               >
                 What We Offer
               </p>
               <h2
-                className="text-4xl md:text-5xl font-normal text-[#F0EDE8] leading-[1.1] tracking-[-0.02em]"
+                className="text-3xl md:text-4xl font-normal text-[#F0EDE8] leading-[1.1] tracking-[-0.02em]"
                 style={{ fontFamily: "var(--font-playfair, Georgia, serif)" }}
               >
                 Five Ways We Deliver
@@ -414,7 +414,7 @@ export default function HomePage() {
             </Link>
           </div>
           <h2
-            className="text-4xl md:text-5xl font-normal text-[#F0EDE8] leading-[1.1] tracking-[-0.02em] mb-16"
+            className="text-3xl md:text-4xl font-normal text-[#F0EDE8] leading-[1.1] tracking-[-0.02em] mb-12"
             style={{ fontFamily: "var(--font-playfair, Georgia, serif)" }}
           >
             Selected Works
@@ -528,7 +528,7 @@ export default function HomePage() {
             </p>
           </div>
           <h2
-            className="text-4xl md:text-5xl font-normal text-[#F0EDE8] leading-[1.1] tracking-[-0.02em] mb-20 max-w-xl"
+            className="text-3xl md:text-4xl font-normal text-[#F0EDE8] leading-[1.1] tracking-[-0.02em] mb-14 max-w-xl"
             style={{ fontFamily: "var(--font-playfair, Georgia, serif)" }}
           >
             Trusted by those who expect nothing but excellence
@@ -551,9 +551,9 @@ export default function HomePage() {
 
       {/* ─── PROCESS STRIP ─── */}
       <section className="relative grain overflow-hidden" style={{ background: "#060606" }}>
-        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-16 py-16 sm:py-20 lg:py-28">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-16 py-12 sm:py-16 lg:py-20">
           <AnimateIn variants={fadeUp}>
-            <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-14 gap-4">
+            <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 gap-4">
               <div>
                 <p
                   className="text-[9px] tracking-[0.4em] uppercase text-[#C6A86B] mb-4"
@@ -562,7 +562,7 @@ export default function HomePage() {
                   How We Work
                 </p>
                 <h2
-                  className="text-4xl md:text-5xl font-normal text-[#F0EDE8] leading-[1.1] tracking-[-0.02em]"
+                  className="text-3xl md:text-4xl font-normal text-[#F0EDE8] leading-[1.1] tracking-[-0.02em]"
                   style={{ fontFamily: "var(--font-playfair, Georgia, serif)" }}
                 >
                   Our Delivery Process

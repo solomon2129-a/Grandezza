@@ -59,7 +59,7 @@ export default function AboutPage() {
             className="font-normal text-[#F0EDE8] leading-[1.05] tracking-[-0.02em]"
             style={{
               fontFamily: "var(--font-playfair, Georgia, serif)",
-              fontSize: "clamp(3rem, 7vw, 5.5rem)",
+              fontSize: "clamp(2.2rem, 5vw, 3.8rem)",
             }}
           >
             About <span className="italic">Grandezza</span>
@@ -81,7 +81,7 @@ export default function AboutPage() {
                   />
                   <p
                     className="font-normal text-[#C6A86B] mb-3 leading-none transition-transform duration-300 group-hover:scale-105"
-                    style={{ fontFamily: "var(--font-playfair, Georgia, serif)", fontSize: "clamp(2.8rem, 5vw, 4.5rem)" }}
+                    style={{ fontFamily: "var(--font-playfair, Georgia, serif)", fontSize: "clamp(1.9rem, 3.5vw, 3rem)" }}
                   >
                     <CountUp target={stat.value} suffix={stat.suffix} />
                   </p>
@@ -100,7 +100,7 @@ export default function AboutPage() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           <AnimateIn variants={fadeLeft}>
             <p className="text-[9px] tracking-[0.4em] uppercase text-[#C6A86B] mb-5" style={{ fontFamily: "var(--font-inter, sans-serif)" }}>Who We Are</p>
-            <h2 className="text-4xl md:text-5xl font-normal text-[#F0EDE8] leading-[1.1] tracking-[-0.02em] mb-7" style={{ fontFamily: "var(--font-playfair, Georgia, serif)" }}>
+            <h2 className="text-3xl md:text-4xl font-normal text-[#F0EDE8] leading-[1.1] tracking-[-0.02em] mb-6" style={{ fontFamily: "var(--font-playfair, Georgia, serif)" }}>
               Luxury Defined by <span className="italic text-[#C6A86B]">Legacy</span>
             </h2>
             <p className="text-[#6B6560] text-sm leading-7 mb-5" style={{ fontFamily: "var(--font-inter, sans-serif)" }}>
@@ -158,7 +158,7 @@ export default function AboutPage() {
 
           <AnimateIn variants={fadeRight} className="order-1 lg:order-2">
             <p className="text-[9px] tracking-[0.4em] uppercase text-[#C6A86B] mb-5" style={{ fontFamily: "var(--font-inter, sans-serif)" }}>The Foundation</p>
-            <h2 className="text-4xl md:text-5xl font-normal text-[#F0EDE8] leading-[1.1] tracking-[-0.02em] mb-7" style={{ fontFamily: "var(--font-playfair, Georgia, serif)" }}>
+            <h2 className="text-3xl md:text-4xl font-normal text-[#F0EDE8] leading-[1.1] tracking-[-0.02em] mb-6" style={{ fontFamily: "var(--font-playfair, Georgia, serif)" }}>
               Sharieff Creations — <span className="italic">30 Years</span> of Building Excellence
             </h2>
             <p className="text-[#6B6560] text-sm leading-7 mb-10" style={{ fontFamily: "var(--font-inter, sans-serif)" }}>
@@ -206,7 +206,7 @@ export default function AboutPage() {
             <div className="w-10 h-px bg-[#C6A86B]" />
             <p className="text-[9px] tracking-[0.4em] uppercase text-[#C6A86B]" style={{ fontFamily: "var(--font-inter, sans-serif)" }}>The Team</p>
           </div>
-          <h2 className="text-4xl md:text-5xl font-normal text-[#F0EDE8] leading-[1.1] tracking-[-0.02em] mb-16" style={{ fontFamily: "var(--font-playfair, Georgia, serif)" }}>
+          <h2 className="text-3xl md:text-4xl font-normal text-[#F0EDE8] leading-[1.1] tracking-[-0.02em] mb-12" style={{ fontFamily: "var(--font-playfair, Georgia, serif)" }}>
             Leadership
           </h2>
         </AnimateIn>
@@ -219,7 +219,7 @@ export default function AboutPage() {
       <SectionWrapper surface>
         <AnimateIn variants={fadeUp}>
           <p className="text-[9px] tracking-[0.4em] uppercase text-[#C6A86B] mb-5" style={{ fontFamily: "var(--font-inter, sans-serif)" }}>Our Principles</p>
-          <h2 className="text-4xl md:text-5xl font-normal text-[#F0EDE8] leading-[1.1] tracking-[-0.02em] mb-16 max-w-lg" style={{ fontFamily: "var(--font-playfair, Georgia, serif)" }}>
+          <h2 className="text-3xl md:text-4xl font-normal text-[#F0EDE8] leading-[1.1] tracking-[-0.02em] mb-12 max-w-lg" style={{ fontFamily: "var(--font-playfair, Georgia, serif)" }}>
             What We Stand For
           </h2>
         </AnimateIn>

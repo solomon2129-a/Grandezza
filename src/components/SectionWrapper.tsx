@@ -17,7 +17,7 @@ export default function SectionWrapper({
   return (
     <section
       id={id}
-      className={`px-5 sm:px-8 lg:px-16 py-16 sm:py-20 lg:py-32 ${className}`}
+      className={`px-5 sm:px-8 lg:px-16 py-12 sm:py-16 lg:py-24 ${className}`}
       style={{ background: bg }}
     >
       <div className="max-w-7xl mx-auto">{children}</div>

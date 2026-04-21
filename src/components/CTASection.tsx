@@ -19,15 +19,14 @@ export default function CTASection({
 }: CTASectionProps) {
   return (
     <section
-      className="relative py-36 overflow-hidden"
-      style={{ background: "#0D0D0D" }}
+      className="relative py-24 overflow-hidden"
+      style={{ background: "#0A0A0A" }}
     >
-      {/* Subtle gold horizontal lines */}
-      <div className="absolute top-0 left-0 right-0 h-px" style={{ background: "linear-gradient(to right, transparent, #C6A86B40, transparent)" }} />
-      <div className="absolute bottom-0 left-0 right-0 h-px" style={{ background: "linear-gradient(to right, transparent, #C6A86B40, transparent)" }} />
+      <div className="absolute top-0 left-0 right-0 h-px" style={{ background: "linear-gradient(to right, transparent, #C6A86B30, transparent)" }} />
+      <div className="absolute bottom-0 left-0 right-0 h-px" style={{ background: "linear-gradient(to right, transparent, #C6A86B30, transparent)" }} />
 
       <motion.div
-        className="relative max-w-3xl mx-auto px-6 text-center"
+        className="relative max-w-2xl mx-auto px-6 text-center"
         variants={staggerContainer}
         initial="hidden"
         whileInView="visible"
@@ -35,7 +34,7 @@ export default function CTASection({
       >
         <motion.p
           variants={fadeUp}
-          className="text-[9px] tracking-[0.45em] uppercase text-[#C6A86B] mb-8"
+          className="text-[9px] tracking-[0.45em] uppercase text-[#C6A86B] mb-6"
           style={{ fontFamily: "var(--font-inter, sans-serif)" }}
         >
           Let&apos;s Create Something Extraordinary
@@ -43,7 +42,7 @@ export default function CTASection({
 
         <motion.h2
           variants={fadeUp}
-          className="text-5xl md:text-7xl font-normal text-[#F5F3EF] leading-[1.05] tracking-[-0.02em] mb-6"
+          className="text-4xl md:text-5xl lg:text-[3.2rem] font-normal text-[#F0EDE8] leading-[1.05] tracking-[-0.02em] mb-5"
           style={{ fontFamily: "var(--font-playfair, Georgia, serif)" }}
         >
           {title}
@@ -51,7 +50,7 @@ export default function CTASection({
 
         <motion.p
           variants={fadeUp}
-          className="text-[#6B6560] text-sm leading-7 mb-12"
+          className="text-[#6B6560] text-sm leading-7 mb-10"
           style={{ fontFamily: "var(--font-inter, sans-serif)" }}
         >
           {subtitle}
@@ -64,10 +63,10 @@ export default function CTASection({
             style={{
               fontFamily: "var(--font-inter, sans-serif)",
               background: "#C6A86B",
-              color: "#0D0D0D",
+              color: "#080808",
             }}
             onMouseEnter={(e) => {
-              (e.currentTarget as HTMLAnchorElement).style.background = "#F5F3EF";
+              (e.currentTarget as HTMLAnchorElement).style.background = "#F0EDE8";
             }}
             onMouseLeave={(e) => {
               (e.currentTarget as HTMLAnchorElement).style.background = "#C6A86B";

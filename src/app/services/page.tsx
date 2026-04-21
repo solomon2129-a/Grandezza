@@ -113,7 +113,7 @@ export default function ServicesPage() {
             <p className="text-[#C6A86B] text-[9px] tracking-[0.45em] uppercase" style={{ fontFamily: "var(--font-inter, sans-serif)" }}>What We Offer</p>
           </div>
           <h1
-            className="text-5xl md:text-7xl font-normal text-[#F0EDE8] leading-[1.0] tracking-[-0.02em]"
+            className="text-4xl md:text-5xl lg:text-6xl font-normal text-[#F0EDE8] leading-[1.0] tracking-[-0.02em]"
             style={{ fontFamily: "var(--font-playfair, Georgia, serif)" }}
           >
             Our <span className="italic">Services</span>
@@ -128,7 +128,7 @@ export default function ServicesPage() {
             <AnimateIn variants={fadeLeft}>
               <p className="text-[9px] tracking-[0.4em] uppercase text-[#C6A86B] mb-5" style={{ fontFamily: "var(--font-inter, sans-serif)" }}>Hover to Explore</p>
               <h2
-                className="text-4xl md:text-5xl font-normal text-[#F0EDE8] leading-[1.1] tracking-[-0.02em]"
+                className="text-3xl md:text-4xl font-normal text-[#F0EDE8] leading-[1.1] tracking-[-0.02em]"
                 style={{ fontFamily: "var(--font-playfair, Georgia, serif)" }}
               >
                 Five Ways We Deliver
@@ -166,7 +166,7 @@ export default function ServicesPage() {
                 <div className="flex-1 h-px bg-[#1E1E1C]" />
               </div>
               <h2
-                className="text-4xl md:text-5xl font-normal text-[#F0EDE8] leading-[1.1] tracking-[-0.02em] mb-6"
+                className="text-3xl md:text-4xl font-normal text-[#F0EDE8] leading-[1.1] tracking-[-0.02em] mb-6"
                 style={{ fontFamily: "var(--font-playfair, Georgia, serif)" }}
               >
                 {service.title}
@@ -230,7 +230,7 @@ export default function ServicesPage() {
           <AnimateIn variants={fadeUp}>
             <p className="text-[9px] tracking-[0.4em] uppercase text-[#C6A86B] mb-5" style={{ fontFamily: "var(--font-inter, sans-serif)" }}>How We Work</p>
             <h2
-              className="text-4xl md:text-5xl font-normal text-[#F0EDE8] leading-[1.1] tracking-[-0.02em] mb-16 max-w-xl"
+              className="text-3xl md:text-4xl font-normal text-[#F0EDE8] leading-[1.1] tracking-[-0.02em] mb-16 max-w-xl"
               style={{ fontFamily: "var(--font-playfair, Georgia, serif)" }}
             >
               Our Delivery Process

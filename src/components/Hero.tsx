@@ -69,7 +69,7 @@ export default function Hero() {
           className="font-normal text-[#F5F3EF] leading-[1.0] tracking-[0.04em] mb-6"
           style={{
             fontFamily: "var(--font-playfair, Georgia, serif)",
-            fontSize: "clamp(3.5rem, 11vw, 8rem)",
+            fontSize: "clamp(2.4rem, 7.5vw, 5.5rem)",
           }}
         >
           Grandezza

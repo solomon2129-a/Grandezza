@@ -92,7 +92,7 @@ export default async function ProjectDetailPage({ params }: Props) {
             {project.location}
           </p>
           <h1
-            className="text-5xl md:text-7xl lg:text-[5rem] font-normal text-[#F0EDE8] leading-[1.0] tracking-[-0.02em] max-w-3xl"
+            className="text-4xl md:text-5xl lg:text-[3.8rem] font-normal text-[#F0EDE8] leading-[1.0] tracking-[-0.02em] max-w-3xl"
             style={{ fontFamily: "var(--font-playfair, Georgia, serif)" }}
           >
             {project.title}
@@ -101,7 +101,7 @@ export default async function ProjectDetailPage({ params }: Props) {
       </section>
 
       {/* PROJECT META + DESCRIPTION */}
-      <section style={{ background: "#080808" }} className="px-5 sm:px-8 lg:px-16 py-16 sm:py-24 lg:py-28">
+      <section style={{ background: "#080808" }} className="px-5 sm:px-8 lg:px-16 py-12 sm:py-16 lg:py-20">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-20">
             {/* Meta sidebar */}
@@ -174,7 +174,7 @@ export default async function ProjectDetailPage({ params }: Props) {
                 Project Overview
               </p>
               <p
-                className="text-[#F0EDE8] text-xl sm:text-2xl font-normal leading-[1.6] mb-8"
+                className="text-[#F0EDE8] text-lg sm:text-xl font-normal leading-[1.6] mb-8"
                 style={{ fontFamily: "var(--font-playfair, Georgia, serif)" }}
               >
                 {project.description}
@@ -191,7 +191,7 @@ export default async function ProjectDetailPage({ params }: Props) {
       </section>
 
       {/* GALLERY */}
-      <section style={{ background: "#0A0A0A" }} className="grain px-5 sm:px-8 lg:px-16 py-16 sm:py-24">
+      <section style={{ background: "#0A0A0A" }} className="grain px-5 sm:px-8 lg:px-16 py-12 sm:py-16">
         <div className="max-w-7xl mx-auto">
           <AnimateIn variants={fadeUp}>
             <p
@@ -225,7 +225,7 @@ export default async function ProjectDetailPage({ params }: Props) {
 
       {/* RELATED PROJECTS */}
       {related.length > 0 && (
-        <section style={{ background: "#080808" }} className="px-5 sm:px-8 lg:px-16 py-16 sm:py-24">
+        <section style={{ background: "#080808" }} className="px-5 sm:px-8 lg:px-16 py-12 sm:py-16">
           <div className="max-w-7xl mx-auto">
             <AnimateIn variants={fadeUp}>
               <div className="flex items-center justify-between mb-14">

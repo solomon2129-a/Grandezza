@@ -52,7 +52,7 @@ export default function ProjectsPage() {
             <p className="text-[#C6A86B] text-[9px] tracking-[0.45em] uppercase" style={{ fontFamily: "var(--font-inter, sans-serif)" }}>Portfolio</p>
           </div>
           <h1
-            className="text-5xl md:text-7xl font-normal text-[#F0EDE8] leading-[1.0] tracking-[-0.02em]"
+            className="text-4xl md:text-5xl lg:text-6xl font-normal text-[#F0EDE8] leading-[1.0] tracking-[-0.02em]"
             style={{ fontFamily: "var(--font-playfair, Georgia, serif)" }}
           >
             Our <span className="italic">Projects</span>
